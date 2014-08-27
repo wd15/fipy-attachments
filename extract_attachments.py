@@ -5,7 +5,7 @@ import wget
 
 url = 'http://matforge.org/fipy'
 attachments = '/tmp/attachments.csv'
-basepath = os.path.join('attachment', 'ticket')
+basepath = os.path.join('raw-attachment', 'ticket')
 attachmentsPrefix = os.path.join(url, basepath)
 
 attachmentsMap = tratihubis._createTicketsToAttachmentsMap(attachments, attachmentsPrefix)
