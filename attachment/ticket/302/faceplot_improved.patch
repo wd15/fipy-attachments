@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+    
+
+
+
+    <head>
+    <title>
+      faceplot_improved.patch on Ticket #302 – Attachment
+     – FiPy
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="/fipy/search" />
+        <link rel="help" href="/fipy/wiki/TracGuide" />
+        <link rel="alternate" href="/fipy/raw-attachment/ticket/302/faceplot_improved.patch" type="text/x-diff; charset=iso-8859-15" title="Original Format" />
+        <link rel="up" href="/fipy/ticket/302" title="Ticket #302" />
+        <link rel="start" href="/fipy/wiki" />
+        <link rel="stylesheet" href="/trac_1.0_htdocs/css/trac.css" type="text/css" /><link rel="stylesheet" href="/trac_1.0_htdocs/css/diff.css" type="text/css" /><link rel="stylesheet" href="/trac_1.0_htdocs/css/code.css" type="text/css" />
+        <link rel="shortcut icon" href="/fipy/chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="/fipy/chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="/fipy/search/opensearch" title="Search FiPy" />
+      <script type="text/javascript" charset="utf-8" src="/trac_1.0_htdocs/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/trac_1.0_htdocs/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/trac_1.0_htdocs/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/trac_1.0_htdocs/js/search.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/trac_1.0_htdocs/js/diff.js"></script>
+      <script type="text/javascript" src="/trac_1.0_htdocs/js/folding.js"></script>
+      <script type="text/javascript">
+        jQuery(document).ready(function($) {
+          $('#preview table.code').enableCollapsibleColumns($('#preview table.code thead th.content'));
+        });
+      </script>
+        <link rel="stylesheet" type="text/css" href="/trac_1.0_htdocs//css/matdlosi.css" />
+	<style type="text/css">
+	body {width: 95%;}
+	</style>
+    </head>
+    <body>
+    <div id="banner">
+      <div id="header">
+            <div id="topLogo">
+                <img src="/trac_1.0_htdocs//hdr_main.jpg" alt="Main Header" usemap="#MatDL_Banner_Narrow_Map" />
+                <map name="MatDL_Banner_Narrow_Map">
+                    <area shape="rect" alt="Materials Digital Library" coords="44,53,263,70" href="http://matdl.org" />
+                    <area shape="rect" alt="NSDL logo" coords="675,43,740,71" href="http://nsdl.org" />
+                    <area shape="rect" alt="NSF logo" coords="686,0,731,43" href="http://nsf.gov" />
+                    <area shape="rect" alt="MatDL logo" coords="44,0,158,53" href="http://matdl.org" />
+                </map>
+                <br />
+                <br />
+            </div>
+            <div id="projheader">
+                <h1 style="margin: 0px;">
+                    <img style="width: 50px;" src="/fipy/chrome/site/fipy-logo.png" alt="FiPy" />
+                FiPy: A Finite Volume PDE Solver Using Python</h1>
+                <a href="http://www.ctcms.nist.gov/fipy">FiPy Home</a>
+            </div>
+        </div>
+      <form id="search" action="/fipy/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="/fipy/login">Login</a></li><li><a href="/fipy/wiki/TracGuide">Help/Guide</a></li><li><a href="/fipy/about">About Trac</a></li><li><a href="http://matforge.org">Matforge Home</a></li><li><a href="/fipy/register">Register</a></li><li><a href="http://matforge.org/participate.html">Participate</a></li><li class="last"><a href="/fipy/prefs">Preferences</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+    <ul>
+      <li class="first"><a href="/fipy/wiki">Wiki</a></li><li><a href="/fipy/blog">Blog</a></li><li><a href="/fipy/timeline">Timeline</a></li><li><a href="/fipy/roadmap">Roadmap</a></li><li><a href="/fipy/browser">Browse Source</a></li><li><a href="/fipy/report">View Tickets</a></li><li><a href="http://build.cmi.kent.edu:8010/waterfall">Buildbot</a></li><li class="last"><a href="http://build.cmi.kent.edu/codespeed">Codespeed</a></li>
+    </ul>
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="last first"><a href="/fipy/ticket/302">Back to Ticket #302</a></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="attachment">
+        <h1><a href="/fipy/ticket/302">Ticket #302</a>: faceplot_improved.patch</h1>
+        <table id="info" summary="Description">
+          <tbody>
+            <tr>
+              <th scope="col">File faceplot_improved.patch,
+                <span title="3798 bytes">3.7 KB</span>
+                (added by benny.malengier@…, <a class="timeline" href="/fipy/timeline?from=2010-07-15T07%3A34%3A51-04%3A00&amp;precision=second" title="See timeline at 07/15/10 07:34:51">4 years ago</a>)</th>
+            </tr>
+            <tr>
+              <td class="message searchable">
+                
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="preview" class="searchable">
+          
+  <div class="diff">
+  <ul class="entries">
+      <li class="entry">
+        <h2>
+          <a>fipy/viewers/gnuplotViewer/gnuplot1DViewer.py</a>
+        </h2>
+        <table class="trac-diff inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File fipy/viewers/gnuplotViewer/gnuplot1DViewer.py (revision 3720)">
+                  </th>
+                  <th title="File fipy/viewers/gnuplotViewer/gnuplot1DViewer.py (working copy)">
+                  </th>
+                  <td><em></em> </td>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>39</th><th>39</th><td class="l"><span>from fipy.tools import numerix</span> </td>
+                  </tr><tr>
+                          <th>40</th><th>40</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>41</th><th>41</th><td class="l"><span>from gnuplotViewer import _GnuplotViewer</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>42</th><td class="r"><ins>from fipy.variables.faceVariable import FaceVariable</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>42</th><th>43</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>44</th><td class="r"><ins></ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>43</th><th>45</th><td class="l"><span>class Gnuplot1DViewer(_GnuplotViewer):</span> </td>
+                  </tr><tr>
+                          <th>44</th><th>46</th><td class="l"><span>&nbsp; &nbsp; """Displays a y vs. x plot of one or more 1D `CellVariable` objects.</span> </td>
+                  </tr><tr>
+                          <th>45</th><th>47</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L77">…</a></th>
+                  <th><a href="#L79">…</a></th>
+                  <td><em></em> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>77</th><th>79</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; for var in self.vars:</span> </td>
+                  </tr><tr>
+                          <th>78</th><th>80</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # Python 2.6 made 'with' a keyward (deprecation warnings have been issued since 2.5)</span> </td>
+                  </tr><tr>
+                          <th>79</th><th>81</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; # this was addressed in Gnuplot.py in r299, in 2007</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>80</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tupleOfGnuplotData += (Gnuplot.Data(numerix.array(var.getMesh().getCellCenters()[0]), </span> </td>
+                      </tr><tr>
+                        <th>81</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; numerix.array(var.getValue()),</span> </td>
+                      </tr><tr>
+                        <th>82</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title=var.getName(),</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>82</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; yvals = numerix.array(var.getValue())</span> </td>
+                      </tr><tr>
+                        <th> </th><th>83</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title = var.getName()</span> </td>
+                      </tr><tr>
+                        <th> </th><th>84</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if var._getVariableClass() is not FaceVariable:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>85</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tupleOfGnuplotData += (Gnuplot.Data(numerix.array(var.getMesh().getCellCenters()[0]), </span> </td>
+                      </tr><tr>
+                        <th> </th><th>86</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; yvals,</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>87</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title=title,</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>83</th><th>88</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; with_='lines'),)</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>84</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>89</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>90</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; #assume this error is because we plot a facevariable:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>91</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; tupleOfGnuplotData += (Gnuplot.Data(numerix.array(var.getMesh().getFaceCenters()[0]), </span> </td>
+                      </tr><tr>
+                        <th> </th><th>92</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; yvals,</span> </td>
+                      </tr><tr>
+                        <th> </th><th>93</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; title=title,</span> </td>
+                      </tr><tr>
+                        <th> </th><th>94</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; with_='lines'),)</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>95</th><td class="r"><span></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>85</th><th>96</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; apply(self.g.plot, tupleOfGnuplotData)</span> </td>
+                  </tr><tr>
+                          <th>86</th><th>97</th><td class="l"><span>&nbsp; &nbsp; </span> </td>
+                  </tr><tr>
+                          <th>87</th><th>98</th><td class="l"><span>if __name__ == "__main__": </span> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+      <li class="entry">
+        <h2>
+          <a>fipy/viewers/gnuplotViewer/gnuplot2DViewer.py</a>
+        </h2>
+        <table class="trac-diff inline" summary="Differences" cellspacing="0">
+              <colgroup><col class="lineno" /><col class="lineno" /><col class="content" /></colgroup>
+              <thead>
+                <tr>
+                  <th title="File fipy/viewers/gnuplotViewer/gnuplot2DViewer.py (revision 3720)">
+                  </th>
+                  <th title="File fipy/viewers/gnuplotViewer/gnuplot2DViewer.py (working copy)">
+                  </th>
+                  <td><em></em> </td>
+                </tr>
+              </thead>
+            <tbody class="unmod">
+                  <tr>
+                          <th>40</th><th>40</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>41</th><th>41</th><td class="l"><span>from gnuplotViewer import _GnuplotViewer</span> </td>
+                  </tr><tr>
+                          <th>42</th><th>42</th><td class="l"><span>from fipy.meshes.grid2D import Grid2D</span> </td>
+                  </tr>
+            </tbody><tbody class="add">
+                  <tr class="last first">
+                          <th> </th><th>43</th><td class="r"><ins>from fipy.variables.faceVariable import FaceVariable</ins> </td>
+                  </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>43</th><th>44</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>44</th><th>45</th><td class="l"><span>class Gnuplot2DViewer(_GnuplotViewer):</span> </td>
+                  </tr><tr>
+                          <th>45</th><th>46</th><td class="l"><span>&nbsp; &nbsp; """</span> </td>
+                  </tr>
+            </tbody>
+              <tbody class="skipped">
+                <tr>
+                  <th><a href="#L93">…</a></th>
+                  <th><a href="#L94">…</a></th>
+                  <td><em></em> </td>
+                </tr>
+              </tbody>
+            <tbody class="unmod">
+                  <tr>
+                          <th>93</th><th>94</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; self.g('set pm3d at st solid')</span> </td>
+                  </tr><tr>
+                          <th>94</th><th>95</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; mesh = self.vars[0].getMesh()</span> </td>
+                  </tr><tr>
+                          <th>95</th><th>96</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>96</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; if isinstance(mesh, Grid2D.__class__):</span> </td>
+                      </tr><tr>
+                        <th>97</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; nx, ny = mesh.getShape()</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>97</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; facevar = False</span> </td>
+                      </tr><tr>
+                        <th> </th><th>98</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; if self.vars[0]._getVariableClass() is not FaceVariable:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>99</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if isinstance(mesh, Grid2D.__class__):</span> </td>
+                      </tr><tr>
+                        <th> </th><th>100</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; nx, ny = mesh.getShape()</span> </td>
+                      </tr><tr>
+                        <th> </th><th>101</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; else:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>102</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; N = int(numerix.sqrt(mesh.getNumberOfCells()))</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>103</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; nx, ny = N, N</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>98</th><th>104</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; else:</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>99</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; N = int(numerix.sqrt(mesh.getNumberOfCells()))</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>105</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; facevar = True</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>106</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; N = int(numerix.sqrt(mesh._getNumberOfFaces()))</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>100</th><th>107</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; nx, ny = N, N</span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>101</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; <del>&nbsp; &nbsp; </del></span> </td>
+                      </tr>
+                      <tr class="last">
+                        <th> </th><th>108</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; <ins>print 'facevar', facevar</ins></span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>102</th><th>109</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; self.g('set dgrid3d %i, %i, 2' % (ny, nx))</span> </td>
+                  </tr><tr>
+                          <th>103</th><th>110</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody><tbody class="mod">
+                      <tr class="first">
+                        <th>104</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; x, y = mesh.getCellCenters()</span> </td>
+                      </tr><tr>
+                        <th>105</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; import Gnuplot</span> </td>
+                      </tr><tr>
+                        <th>106</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; data = Gnuplot.Data(numerix.array(x), numerix.array(y),</span> </td>
+                      </tr><tr>
+                        <th>107</th><th> </th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self.vars[0].getValue())</span> </td>
+                      </tr>
+                      <tr>
+                        <th> </th><th>111</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; if not facevar:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>112</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x, y = mesh.getCellCenters()</span> </td>
+                      </tr><tr>
+                        <th> </th><th>113</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; import Gnuplot</span> </td>
+                      </tr><tr>
+                        <th> </th><th>114</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data = Gnuplot.Data(numerix.array(x), numerix.array(y),</span> </td>
+                      </tr><tr>
+                        <th> </th><th>115</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self.vars[0].getValue())</span> </td>
+                      </tr><tr>
+                        <th> </th><th>116</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; else:</span> </td>
+                      </tr><tr>
+                        <th> </th><th>117</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; x, y = mesh.getFaceCenters()</span> </td>
+                      </tr><tr>
+                        <th> </th><th>118</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; import Gnuplot</span> </td>
+                      </tr><tr>
+                        <th> </th><th>119</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data = Gnuplot.Data(numerix.array(x), numerix.array(y),</span> </td>
+                      </tr><tr class="last">
+                        <th> </th><th>120</th><td class="r"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; self.vars[0].getValue())</span> </td>
+                      </tr>
+            </tbody><tbody class="unmod">
+                  <tr>
+                          <th>108</th><th>121</th><td class="l"><span></span> </td>
+                  </tr><tr>
+                          <th>109</th><th>122</th><td class="l"><span>&nbsp; &nbsp; &nbsp; &nbsp; self.g.splot(data)</span> </td>
+                  </tr><tr>
+                          <th>110</th><th>123</th><td class="l"><span></span> </td>
+                  </tr>
+            </tbody>
+        </table>
+      </li>
+  </ul>
+</div>
+
+        </div>
+    </div>
+    <div id="altlinks">
+      <h3>Download in other formats:</h3>
+      <ul>
+        <li class="last first">
+          <a rel="nofollow" href="/fipy/raw-attachment/ticket/302/faceplot_improved.patch">Original Format</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    <div id="footer" lang="en" xml:lang="en">
+            <div id="projfooter"><!-- Project specific footer start -->
+                <script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+                <script type="text/javascript">
+                    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+                    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+                <script type="text/javascript">
+                    var pageTracker = _gat._getTracker("UA-2981268-9");
+                    pageTracker._initData();
+                    pageTracker._trackPageview();
+                </script>
+            </div><!-- Project specific footer end -->
+            <div id="footer_banner">
+                <img src="/trac_1.0_htdocs//footer.gif" width="840" height="45" border="0" usemap="#footer" />
+                <map name="footer" id="footer">
+                    <area shape="rect" coords="2,3,133,42" href="http://www.kent.edu" target="_blank" alt="Kent State University" />
+                    <area shape="rect" coords="137,3,240,41" href="http://www.nist.gov" target="_blank" alt="NIST" />
+                    <area shape="rect" coords="244,3,372,39" href="http://www.mit.edu" target="_blank" alt="MIT" />
+                    <area shape="rect" coords="376,5,606,41" href="http://www.umich.edu" target="_blank" alt="University of Michigan" />
+                    <area shape="rect" coords="613,5,715,38" href="http://www.purdue.edu" target="_blank" alt="Purdue" />
+                    <area shape="rect" coords="718,4,833,41" href="http://www.iastate.edu" target="_blank" alt="Iowa State University" />
+                </map>
+            </div>
+            <br />
+            <div id="altlinks">
+                <br />
+                <ul>
+                    <li><a href="http://matdl.org/repository/about.htm" class="last first"> About </a></li>
+                    <li><a href="http://matdl.org/repository/tou.htm" class="last first"> Terms of Use </a></li>
+                    <li><a href="http://matdl.org/repository/contact.htm" class="last first"> Contact </a></li>
+                    <li><a href="http://matdl.org/repository/priv.htm" class="last first"> Privacy Policy </a></li>
+                </ul>
+            </div>
+	    <div id="tracfooter" lang="en" xml:lang="en">
+	    <a id="tracpowered" href="http://trac.edgewall.org/"><img src="/fipy/chrome/common/trac_logo_mini.png" height="30" width="107" alt="Trac Powered" /></a>
+	    <p class="left">
+	    Powered by <a href="/fipy/about"><strong>Trac 1.0</strong></a><br />
+	    By <a href="http://www.edgewall.org/">Edgewall Software</a>.
+	    </p>
+	    <p class="right">Visit the Trac open source project at<br /><a href="http://trac.edgewall.org/">http://trac.edgewall.org/</a></p>
+	    </div>
+        </div>
+    </body>
+</html>
