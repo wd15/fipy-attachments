@@ -1,0 +1,77 @@
+Index: meshes/numMesh/mesh.py
+===================================================================
+--- meshes/numMesh/mesh.py	(revision 3646)
++++ meshes/numMesh/mesh.py	(working copy)
+@@ -66,6 +66,8 @@
+         self.cellFaceIDs = MA.masked_values(cellFaceIDs, -1)
+ 
+         _CommonMesh.__init__(self)
++        self.nonPeriodicCellVertexIDs = None
++        self.nonPeriodicOrderedCellVertexIDs = None
+         
+     """Topology methods"""
+ 
+@@ -89,6 +91,7 @@
+     def _concatenate(self, other, smallNumber):
+         return Mesh(**self._getAddedMeshValues(other, smallNumber))
+ 
++
+     def _connectFaces(self, faces0, faces1):
+         """
+         
+@@ -226,6 +229,7 @@
+             try:
+                 currFace = other.faceVertexIDs[...,i].copy()
+             except:
++                print 'exception !!'
+                 currFace = MA.array(other.faceVertexIDs[...,i], mask=MA.getmask(other.faceVertexIDs[...,i]))
+ 
+             keepGoing = 1
+@@ -590,13 +594,16 @@
+         return self.faceCenters
+ 
+     def _getOrderedCellVertexIDs(self):
++        if self.nonPeriodicOrderedCellVertexIDs is not None:
++            return self.nonPeriodicOrderedCellVertexIDs
+         return self._getCellVertexIDs()
+ 
+     def _getCellDistanceNormals(self):
+         return self.getCellDistanceVectors() / self.getCellDistances()
+         
+     def _getCellVertexIDs(self):
+-
++        if self.nonPeriodicCellVertexIDs is not None:
++            return self.nonPeriodicCellVertexIDs
+         ## Get all the vertices from all the faces for each cell
+         cellFaceVertices = numerix.take(self.faceVertexIDs, self.cellFaceIDs, axis=1)
+ 
+Index: meshes/numMesh/mesh2D.py
+===================================================================
+--- meshes/numMesh/mesh2D.py	(revision 3646)
++++ meshes/numMesh/mesh2D.py	(working copy)
+@@ -103,8 +103,25 @@
+     def _concatenate(self, other, smallNumber):
+         return Mesh2D(**self._getAddedMeshValues(other._getConcatenableMesh(), smallNumber))
+ 
++    def connectFacesLR(self, left=None, right=None):
++        self.nonPeriodicCellVertexIDs = self._getCellVertexIDs().copy()
++        self.nonPeriodicOrderedCellVertexIDs = self._getOrderedCellVertexIDs().copy()
++        from fipy.tools import numerix
++        if left is not None:
++            lf = left
++        else:
++            lf = self.getFacesLeft()
++        if right is not None:
++            rf = right
++        else:
++            rf = self.getFacesRight()
++        self._connectFaces(numerix.nonzero(lf), 
++                           numerix.nonzero(rf))
++
+     def _getOrderedCellVertexIDs(self):
+         from fipy.tools.numerix import take
++        if self.nonPeriodicOrderedCellVertexIDs is not None:
++            return self.nonPeriodicOrderedCellVertexIDs
+         NFac = self._getMaxFacesPerCell()
+ 
+         # numpy 1.1's MA.take doesn't like FlatIter. Call ravel() instead.

@@ -1,0 +1,30 @@
+*** a/INSTALLATION.txt	2013-07-19 12:15:48.000000000 -0700
+--- b/INSTALLATION.txt	2013-08-26 10:58:08.000000000 -0700
+***************
+*** 355,365 ****
+  ==========================
+  
+  :term:`FiPy` now has a `.deb` for Ubuntu/Debian systems that can be
+  downloaded from <http://www.ctcms.nist.gov/fipy/download>. Simply run::
+  
+!   $ dpkg -i python-fipy_x.y.z-1_all.deb
+  
+  to install. The `.deb` includes dependencies for all of the
+  :ref:`REQUIREDPACKAGES` and :ref:`OPTIONALPACKAGES`.
+  
+  .. _tested regularly: http://matforge.org/fipy/build
+--- 355,368 ----
+  ==========================
+  
+  :term:`FiPy` now has a `.deb` for Ubuntu/Debian systems that can be
+  downloaded from <http://www.ctcms.nist.gov/fipy/download>. Simply run::
+  
+!   $ VERSION=3.0-1  # choose the version you want
+!   $ apt-get install gmsh libsuperlu3 python-central python-sparse
+!   $ curl -O http://www.ctcms.nist.gov/fipy/download/python-fipy_${VERSION}_all.deb
+!   $ dpkg -i python-fipy_${VERSION}_all.deb
+  
+  to install. The `.deb` includes dependencies for all of the
+  :ref:`REQUIREDPACKAGES` and :ref:`OPTIONALPACKAGES`.
+  
+  .. _tested regularly: http://matforge.org/fipy/build

@@ -1,0 +1,122 @@
+diff --git a/fipy/meshes/abstractMesh.py b/fipy/meshes/abstractMesh.py
+index 5e888f1..ddd7908 100644
+--- a/fipy/meshes/abstractMesh.py
++++ b/fipy/meshes/abstractMesh.py
+@@ -407,7 +407,7 @@ class AbstractMesh(object):
+                                            
+         # map other's Vertex IDs to new Vertex IDs, 
+         # accounting for overlaps with self's Vertex IDs
+-        vertex_map = numerix.empty(otherNumVertices, dtype=int)
++        vertex_map = numerix.empty(otherNumVertices, dtype=numerix.INT_DTYPE)
+         verticesToAdd = numerix.delete(numerix.arange(otherNumVertices), vertexCorrelates[1])
+         vertex_map[verticesToAdd] = numerix.arange(otherNumVertices - len(vertexCorrelates[1])) + selfNumVertices
+         vertex_map[vertexCorrelates[1]] = vertexCorrelates[0]
+@@ -457,7 +457,7 @@ class AbstractMesh(object):
+ 
+         # map other's Face IDs to new Face IDs, 
+         # accounting for overlaps with self's Face IDs
+-        face_map = numerix.empty(otherNumFaces, dtype=int)
++        face_map = numerix.empty(otherNumFaces, dtype=numerix.INT_DTYPE)
+         facesToAdd = numerix.delete(numerix.arange(otherNumFaces), faceCorrelates[1])
+         face_map[facesToAdd] = numerix.arange(otherNumFaces - len(faceCorrelates[1])) + selfNumFaces
+         face_map[faceCorrelates[1]] = faceCorrelates[0]
+@@ -1083,7 +1083,7 @@ class AbstractMesh(object):
+         if numerix.MA.is_masked(self.cellFaceIDs):
+             facesPerCell = (~numerix.MA.getmask(self.cellFaceIDs)).sum(axis=0)
+         else:
+-            facesPerCell = numerix.empty((self.numberOfCells,), dtype=int)
++            facesPerCell = numerix.empty((self.numberOfCells,), dtype=numerix.INT_DTYPE)
+             facesPerCell[:] = self._maxFacesPerCell
+         return facesPerCell
+ 
+@@ -1097,7 +1097,7 @@ class AbstractMesh(object):
+         if numerix.MA.is_masked(cellFaceVertices):
+             nodesPerFace = (~cellFaceVertices.mask).sum(axis=0)
+         else:
+-            nodesPerFace = numerix.empty(cellFaceVertices.shape[1:], dtype=int)
++            nodesPerFace = numerix.empty(cellFaceVertices.shape[1:], dtype=numerix.INT_DTYPE)
+             nodesPerFace[:] = self.faceVertexIDs.shape[0]
+             
+         return nodesPerFace
+diff --git a/fipy/meshes/gmshMesh.py b/fipy/meshes/gmshMesh.py
+index 0fadb77..02d2fd0 100755
+--- a/fipy/meshes/gmshMesh.py
++++ b/fipy/meshes/gmshMesh.py
+@@ -654,7 +654,7 @@ class MSHFile(GmshFile):
+         maxFaceLen = max([len(f) for f in uniqueFaces])
+         uniqueFaces = [[-1] * (maxFaceLen - len(f)) + f for f in uniqueFaces]
+                
+-        facesToVertices = nx.array(uniqueFaces, dtype=int)
++        facesToVertices = nx.array(uniqueFaces, dtype=nx.INT_DTYPE)
+ 
+         return facesToVertices.swapaxes(0,1)[::-1], cellsToFaces.swapaxes(0,1).copy('C'), facesDict
+ 
+@@ -857,7 +857,7 @@ class MSHFile(GmshFile):
+         # convert lists of cell vertices to a properly oriented masked array
+         maxVerts = max([len(v) for v in cellsToVertIDs])
+         # ticket:539 - NumPy 1.7 casts to array before concatenation and empty array defaults to float
+-        cellsToVertIDs = [nx.concatenate((v, nx.array([-1] * (maxVerts-len(v)), dtype=int))) for v in cellsToVertIDs]
++        cellsToVertIDs = [nx.concatenate((v, nx.array([-1] * (maxVerts-len(v)), dtype=nx.INT_DTYPE))) for v in cellsToVertIDs]
+         cellsToVertIDs = nx.MA.masked_equal(cellsToVertIDs, value=-1).swapaxes(0,1)
+                 
+         parprint("Done with cells and faces.")
+@@ -1001,7 +1001,7 @@ class MSHFile(GmshFile):
+         because we want to avoid loading the entire msh file into memory.
+         """
+         allVerts     = [v for c in cellsToGmshVerts for v in c] # flatten
+-        allVerts     = nx.unique(nx.array(allVerts, dtype=int)) # remove dups
++        allVerts     = nx.unique(nx.array(allVerts, dtype=nx.INT_DTYPE)) # remove dups
+         allVerts     = nx.sort(allVerts)
+         maxVertIdx   = allVerts[-1] + 1 # add one to offset zero
+         vertGIDtoIdx = nx.ones(maxVertIdx, 'l') * -1 # gmsh ID -> vertexCoords idx
+diff --git a/fipy/meshes/topologies/meshTopology.py b/fipy/meshes/topologies/meshTopology.py
+index fb23f76..561fccc 100644
+--- a/fipy/meshes/topologies/meshTopology.py
++++ b/fipy/meshes/topologies/meshTopology.py
+@@ -61,7 +61,7 @@ class _MeshTopology(_AbstractTopology):
+         def faceCountsMatch(targetCounts):
+             if len(targetCounts) > nodesPerFace.shape[0]:
+                 # pad nodesPerFace with zeros
+-                paddedNodesPerFace = numerix.zeros((len(targetCounts), nodesPerFace.shape[1]), dtype=int)
++                paddedNodesPerFace = numerix.zeros((len(targetCounts), nodesPerFace.shape[1]), dtype=numerix.INT_DTYPE)
+                 paddedNodesPerFace[:nodesPerFace.shape[0], :] = nodesPerFace
+                 
+                 paddedTargetCounts = numerix.array(targetCounts)[..., numerix.newaxis]
+diff --git a/fipy/tools/numerix.py b/fipy/tools/numerix.py
+index 9e5d617..2ae6889 100644
+--- a/fipy/tools/numerix.py
++++ b/fipy/tools/numerix.py
+@@ -74,6 +74,24 @@ Take the tangent of an array.
+ __docformat__ = 'restructuredtext'
+ 
+ import numpy as NUMERIX
++
++# On all platforms except Win64, int will be either 32 bit 
++# or 64 bit depending on the platform and the Python;
++# however, on Win64 (and python 64-bit), int will always be
++# 32-bit. This is a known issue, and StackOverflow has many
++# questions and answers.  However, we still need to do 
++# something about it, so instead of relying on the default 
++# mapping, we'll be explicit:
++
++import platform
++arch=platform.architecture()[0]
++if arch == '32bit':
++    INT_DTYPE=NUMERIX.int32
++elif arch == '64bit':
++    INT_DTYPE=NUMERIX.int64
++else:
++    raise Exception('Cannot set integer dtype because architecture is unknown.')
++
+ from numpy.core import umath
+ from numpy import newaxis as NewAxis
+ from numpy import *
+@@ -494,7 +512,7 @@ def nearest(data, points, max_mem=1e8):
+     
+     numChunks = int(round(D * N * data.itemsize * M / max_mem + 0.5))
+ 
+-    nearestIndices = empty((M,), dtype=int)
++    nearestIndices = empty((M,), dtype=INT_DTYPE)
+     for chunk in array_split(arange(points.shape[-1]), numChunks):
+         # last chunk can be empty, but numpy (1.5.0.dev8716, anyway)
+         # returns array([], dtype=float64), which can't be used for indexing

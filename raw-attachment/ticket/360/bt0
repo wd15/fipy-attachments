@@ -1,0 +1,175 @@
+#0  0x0000000106b516c2 in mca_btl_sm_component_progress ()
+#1  0x0000000106b435ea in mca_bml_r2_progress ()
+#2  0x00000001064b5d4a in opal_progress ()
+#3  0x00000001063ae2d5 in ompi_request_wait_all ()
+#4  0x0000000106b7e4c6 in ompi_coll_tuned_sendrecv_actual ()
+#5  0x0000000106b82977 in ompi_coll_tuned_allgather_intra_two_procs ()
+#6  0x00000001063c0ac3 in MPI_Allgather ()
+#7  0x0000000105e924e4 in Epetra_MpiComm::GatherAll (this=0x11375b120, MyVals=0x7fff5fbf55b8, AllVals=0x110fc5830, Count=1) at trilinos-10.6.4-Source/packages/epetra/src/Epetra_MpiComm.cpp:99
+#8  0x0000000105dd5da6 in Epetra_BasicDirectory::Epetra_BasicDirectory (this=0x110fdb1e0, Map=@0x111581c60) at trilinos-10.6.4-Source/packages/epetra/src/Epetra_BasicDirectory.cpp:81
+#9  0x0000000105e90144 in Epetra_MpiComm::CreateDirectory (this=0x11375b120, map=@0x111581c60) at trilinos-10.6.4-Source/packages/epetra/src/Epetra_MpiComm.cpp:202
+#10 0x0000000105ddedee in Epetra_BlockMap::DetermineIsOneToOne (this=0x111581c60) at trilinos-10.6.4-Source/packages/epetra/src/Epetra_BlockMap.cpp:820
+#11 0x0000000105de919f in Epetra_BlockMap::Epetra_BlockMap (this=0x111581c60, NumGlobal_Elements=1250, Element_Size=1, Index_Base=0, comm=@0x113798c78) at trilinos-10.6.4-Source/packages/epetra/src/Epetra_BlockMap.cpp:97
+#12 0x0000000105e4e506 in Epetra_Map::Epetra_Map (this=0x111581c60, NumGlobalElements=1250, IndexBase=0, Comm=@0x113798c78) at trilinos-10.6.4-Source/packages/epetra/src/Epetra_Map.cpp:49
+#13 0x0000000105dd53e8 in Epetra_BasicDirectory::Generate (this=0x111581c10, Map=@0x111451d20) at trilinos-10.6.4-Source/packages/epetra/src/Epetra_BasicDirectory.cpp:218
+#14 0x0000000105dd5dd7 in Epetra_BasicDirectory::Epetra_BasicDirectory (this=0x111581c10, Map=@0x111451d20) at trilinos-10.6.4-Source/packages/epetra/src/Epetra_BasicDirectory.cpp:88
+#15 0x0000000105e90144 in Epetra_MpiComm::CreateDirectory (this=0x113798c60, map=@0x111451d20) at trilinos-10.6.4-Source/packages/epetra/src/Epetra_MpiComm.cpp:202
+#16 0x0000000105ddedee in Epetra_BlockMap::DetermineIsOneToOne (this=0x111451d20) at trilinos-10.6.4-Source/packages/epetra/src/Epetra_BlockMap.cpp:820
+#17 0x0000000105de6653 in Epetra_BlockMap::Epetra_BlockMap (this=0x111451d20, NumGlobal_Elements=-1, NumMy_Elements=1250, MyGlobalElements=0x111f4f600, Element_Size=1, IndexBase=0, Comm=@0x1017f0548) at trilinos-10.6.4-Source/packages/epetra/src/Epetra_BlockMap.cpp:264
+#18 0x0000000105e4e2ed in Epetra_Map::Epetra_Map (this=0x111451d20, NumGlobalElements=-1, NumMyElements=1250, MyGlobalElements=0x111f4f600, IndexBase=0, Comm=@0x1017f0548) at trilinos-10.6.4-Source/packages/epetra/src/Epetra_Map.cpp:65
+#19 0x000000010f5941df in _wrap_new_Map__SWIG_2 (args=0x1128b2890) at trilinos-10.6.4-Source/MACOSX_MPI_64/packages/PyTrilinos/src/EpetraPYTHON_wrap.cpp:48028
+#20 0x000000010f595b81 in _wrap_new_Map (self=0x0, args=0x1128b2890) at trilinos-10.6.4-Source/MACOSX_MPI_64/packages/PyTrilinos/src/EpetraPYTHON_wrap.cpp:48227
+#21 0x00000001000ae32c in PyEval_EvalFrameEx (f=0x110f15920, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4323
+#22 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x10f28e6b0, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x110509368, argcount=5, kws=0x0, kwcount=0, defs=0x0, defcount=0, closure=0x0) at Python/ceval.c:3253
+#23 0x0000000100037970 in function_call (func=0x10f42bd70, arg=0x110509350, kw=0x0) at Objects/funcobject.c:526
+#24 0x000000010000c352 in PyObject_Call (func=0x10f42bd70, arg=0x110509350, kw=0x0) at Objects/abstract.c:2529
+#25 0x000000010001d57b in instancemethod_call (func=0x10f42bd70, arg=0x110509350, kw=0x0) at Objects/classobject.c:2578
+#26 0x000000010000c352 in PyObject_Call (func=0x112cc8690, arg=0x111016368, kw=0x0) at Objects/abstract.c:2529
+#27 0x000000010006cc48 in slot_tp_init (self=<value temporarily unavailable, due to optimizations>, args=0x111016368, kwds=0x0) at Objects/typeobject.c:5657
+#28 0x000000010006808d in type_call (type=<value temporarily unavailable, due to optimizations>, args=0x111016368, kwds=0x0) at Objects/typeobject.c:735
+#29 0x000000010000c352 in PyObject_Call (func=0x10f3491b0, arg=0x111016368, kw=0x0) at Objects/abstract.c:2529
+#30 0x00000001000ac9ca in do_call [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4231
+#31 0x00000001000ac9ca in call_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4036
+#32 0x00000001000ac9ca in PyEval_EvalFrameEx (f=0x110f16c60, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:2666
+#33 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x110dc8f30, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x100311948, argcount=1, kws=0x112e2b2c0, kwcount=4, defs=0x1110044e0, defcount=4, closure=0x0) at Python/ceval.c:3253
+#34 0x0000000100037970 in function_call (func=0x111008398, arg=0x110533dd0, kw=0x11378f860) at Objects/funcobject.c:526
+#35 0x000000010000c352 in PyObject_Call (func=0x111008398, arg=0x110533dd0, kw=0x11378f860) at Objects/abstract.c:2529
+#36 0x000000010001d57b in instancemethod_call (func=0x111008398, arg=0x110533dd0, kw=0x11378f860) at Objects/classobject.c:2578
+#37 0x000000010000c352 in PyObject_Call (func=0x110552b90, arg=0x10025b050, kw=0x11378f860) at Objects/abstract.c:2529
+#38 0x000000010006cc48 in slot_tp_init (self=<value temporarily unavailable, due to optimizations>, args=0x10025b050, kwds=0x11378f860) at Objects/typeobject.c:5657
+#39 0x000000010006808d in type_call (type=<value temporarily unavailable, due to optimizations>, args=0x10025b050, kwds=0x11378f860) at Objects/typeobject.c:735
+#40 0x000000010000c352 in PyObject_Call (func=0x110f1c060, arg=0x10025b050, kw=0x11378f860) at Objects/abstract.c:2529
+#41 0x00000001000ac9ca in do_call [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4231
+#42 0x00000001000ac9ca in call_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4036
+#43 0x00000001000ac9ca in PyEval_EvalFrameEx (f=0x110f178a0, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:2666
+#44 0x00000001000af705 in PyEval_EvalFrameEx (f=0x110f184a0, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4099
+#45 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x10ffc4bb0, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x11056d628, argcount=1, kws=0x0, kwcount=0, defs=0x0, defcount=0, closure=0x0) at Python/ceval.c:3253
+#46 0x0000000100037970 in function_call (func=0x110230b18, arg=0x11056d610, kw=0x0) at Objects/funcobject.c:526
+#47 0x000000010000c352 in PyObject_Call (func=0x110230b18, arg=0x11056d610, kw=0x0) at Objects/abstract.c:2529
+#48 0x000000010000cb52 in call_function_tail (callable=0x110230b18, args=0x11056d610) at Objects/abstract.c:2561
+#49 0x000000010000d01a in PyObject_CallFunction (callable=0x110230b18, format=<value temporarily unavailable, due to optimizations>) at Objects/abstract.c:2585
+#50 0x000000010004f94f in _PyObject_GenericGetAttrWithDict (obj=0x1112e1210, name=0x10ffb28b0, dict=0x0) at Objects/object.c:1432
+#51 0x00000001000abf6c in PyEval_EvalFrameEx (f=0x110ec0780, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:2256
+#52 0x00000001000af705 in PyEval_EvalFrameEx (f=0x1115f8270, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4099
+#53 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x1102f1e30, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x111442470, argcount=2, kws=0x112d54288, kwcount=1, defs=0x110266c70, defcount=4, closure=0x0) at Python/ceval.c:3253
+#54 0x00000001000ae11b in fast_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4109
+#55 0x00000001000ae11b in PyEval_EvalFrameEx (f=0x112d540f0, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4034
+#56 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x110dd4b30, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x0, argcount=0, kws=0x0, kwcount=0, defs=0x0, defcount=0, closure=0x0) at Python/ceval.c:3253
+#57 0x00000001000b0226 in PyEval_EvalCode (co=<value temporarily unavailable, due to optimizations>, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:667
+#58 0x00000001000af4d6 in PyEval_EvalFrameEx (f=0x1129337e0, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4710
+#59 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x11084edb0, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x1129948f8, argcount=4, kws=0x112994918, kwcount=0, defs=0x0, defcount=0, closure=0x0) at Python/ceval.c:3253
+#60 0x00000001000ae11b in fast_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4109
+#61 0x00000001000ae11b in PyEval_EvalFrameEx (f=0x112994740, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4034
+#62 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x110853730, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x10014f350, argcount=2, kws=0x110feb3d8, kwcount=2, defs=0x110d03f18, defcount=3, closure=0x0) at Python/ceval.c:3253
+#63 0x00000001000ae11b in fast_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4109
+#64 0x00000001000ae11b in PyEval_EvalFrameEx (f=0x110feb210, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4034
+#65 0x00000001000af705 in PyEval_EvalFrameEx (f=0x112d9cd00, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4099
+#66 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x10043da30, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x1112e6848, argcount=2, kws=0x10025b068, kwcount=0, defs=0x101423868, defcount=1, closure=0x0) at Python/ceval.c:3253
+#67 0x0000000100037970 in function_call (func=0x10142b140, arg=0x1112e6830, kw=0x111127920) at Objects/funcobject.c:526
+#68 0x000000010000c352 in PyObject_Call (func=0x10142b140, arg=0x1112e6830, kw=0x111127920) at Objects/abstract.c:2529
+#69 0x00000001000ac539 in PyEval_EvalFrameEx (f=0x112916b20, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4326
+#70 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x10043dbb0, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x1112e6a40, argcount=2, kws=0x0, kwcount=0, defs=0x0, defcount=0, closure=0x0) at Python/ceval.c:3253
+#71 0x0000000100037970 in function_call (func=0x10142b230, arg=0x1112e6a28, kw=0x0) at Objects/funcobject.c:526
+#72 0x000000010000c352 in PyObject_Call (func=0x10142b230, arg=0x1112e6a28, kw=0x0) at Objects/abstract.c:2529
+#73 0x000000010001d57b in instancemethod_call (func=0x10142b230, arg=0x1112e6a28, kw=0x0) at Objects/classobject.c:2578
+#74 0x000000010000c352 in PyObject_Call (func=0x110886550, arg=0x110dbc250, kw=0x0) at Objects/abstract.c:2529
+#75 0x000000010006d01a in slot_tp_call (self=<value temporarily unavailable, due to optimizations>, args=0x110dbc250, kwds=0x0) at Objects/typeobject.c:5397
+#76 0x000000010000c352 in PyObject_Call (func=0x1116048d0, arg=0x110dbc250, kw=0x0) at Objects/abstract.c:2529
+#77 0x00000001000ac9ca in do_call [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4231
+#78 0x00000001000ac9ca in call_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4036
+#79 0x00000001000ac9ca in PyEval_EvalFrameEx (f=0x110938680, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:2666
+#80 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x101426a30, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x112775ba8, argcount=2, kws=0x10025b068, kwcount=0, defs=0x10142dca8, defcount=1, closure=0x0) at Python/ceval.c:3253
+#81 0x0000000100037970 in function_call (func=0x101433500, arg=0x112775b90, kw=0x112d53cd0) at Objects/funcobject.c:526
+#82 0x000000010000c352 in PyObject_Call (func=0x101433500, arg=0x112775b90, kw=0x112d53cd0) at Objects/abstract.c:2529
+#83 0x00000001000ac539 in PyEval_EvalFrameEx (f=0x110938390, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4326
+#84 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x1014267b0, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x1127ab800, argcount=2, kws=0x0, kwcount=0, defs=0x0, defcount=0, closure=0x0) at Python/ceval.c:3253
+#85 0x0000000100037970 in function_call (func=0x101433410, arg=0x1127ab7e8, kw=0x0) at Objects/funcobject.c:526
+#86 0x000000010000c352 in PyObject_Call (func=0x101433410, arg=0x1127ab7e8, kw=0x0) at Objects/abstract.c:2529
+#87 0x000000010001d57b in instancemethod_call (func=0x101433410, arg=0x1127ab7e8, kw=0x0) at Objects/classobject.c:2578
+#88 0x000000010000c352 in PyObject_Call (func=0x110886410, arg=0x111385d10, kw=0x0) at Objects/abstract.c:2529
+#89 0x000000010006d01a in slot_tp_call (self=<value temporarily unavailable, due to optimizations>, args=0x111385d10, kwds=0x0) at Objects/typeobject.c:5397
+#90 0x000000010000c352 in PyObject_Call (func=0x1116040d0, arg=0x111385d10, kw=0x0) at Objects/abstract.c:2529
+#91 0x00000001000ac9ca in do_call [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4231
+#92 0x00000001000ac9ca in call_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4036
+#93 0x00000001000ac9ca in PyEval_EvalFrameEx (f=0x1111e0cd0, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:2666
+#94 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x101426a30, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x11073ec38, argcount=2, kws=0x10025b068, kwcount=0, defs=0x10142dca8, defcount=1, closure=0x0) at Python/ceval.c:3253
+#95 0x0000000100037970 in function_call (func=0x101433500, arg=0x11073ec20, kw=0x11205ed10) at Objects/funcobject.c:526
+#96 0x000000010000c352 in PyObject_Call (func=0x101433500, arg=0x11073ec20, kw=0x11205ed10) at Objects/abstract.c:2529
+#97 0x00000001000ac539 in PyEval_EvalFrameEx (f=0x110fa9b90, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4326
+#98 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x1014267b0, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x110753e78, argcount=2, kws=0x0, kwcount=0, defs=0x0, defcount=0, closure=0x0) at Python/ceval.c:3253
+#99 0x0000000100037970 in function_call (func=0x101433410, arg=0x110753e60, kw=0x0) at Objects/funcobject.c:526
+#100 0x000000010000c352 in PyObject_Call (func=0x101433410, arg=0x110753e60, kw=0x0) at Objects/abstract.c:2529
+#101 0x000000010001d57b in instancemethod_call (func=0x101433410, arg=0x110753e60, kw=0x0) at Objects/classobject.c:2578
+#102 0x000000010000c352 in PyObject_Call (func=0x110771780, arg=0x112774f90, kw=0x0) at Objects/abstract.c:2529
+#103 0x000000010006d01a in slot_tp_call (self=<value temporarily unavailable, due to optimizations>, args=0x112774f90, kwds=0x0) at Objects/typeobject.c:5397
+#104 0x000000010000c352 in PyObject_Call (func=0x11165a050, arg=0x112774f90, kw=0x0) at Objects/abstract.c:2529
+#105 0x00000001000ac9ca in do_call [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4231
+#106 0x00000001000ac9ca in call_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4036
+#107 0x00000001000ac9ca in PyEval_EvalFrameEx (f=0x111422db0, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:2666
+#108 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x101426a30, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x110755728, argcount=2, kws=0x10025b068, kwcount=0, defs=0x10142dca8, defcount=1, closure=0x0) at Python/ceval.c:3253
+#109 0x0000000100037970 in function_call (func=0x101433500, arg=0x110755710, kw=0x110e5f5a0) at Objects/funcobject.c:526
+#110 0x000000010000c352 in PyObject_Call (func=0x101433500, arg=0x110755710, kw=0x110e5f5a0) at Objects/abstract.c:2529
+#111 0x00000001000ac539 in PyEval_EvalFrameEx (f=0x1115a9330, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4326
+#112 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x1014267b0, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x1107557b8, argcount=2, kws=0x0, kwcount=0, defs=0x0, defcount=0, closure=0x0) at Python/ceval.c:3253
+#113 0x0000000100037970 in function_call (func=0x101433410, arg=0x1107557a0, kw=0x0) at Objects/funcobject.c:526
+#114 0x000000010000c352 in PyObject_Call (func=0x101433410, arg=0x1107557a0, kw=0x0) at Objects/abstract.c:2529
+#115 0x000000010001d57b in instancemethod_call (func=0x101433410, arg=0x1107557a0, kw=0x0) at Objects/classobject.c:2578
+#116 0x000000010000c352 in PyObject_Call (func=0x1107716e0, arg=0x110881390, kw=0x0) at Objects/abstract.c:2529
+#117 0x000000010006d01a in slot_tp_call (self=<value temporarily unavailable, due to optimizations>, args=0x110881390, kwds=0x0) at Objects/typeobject.c:5397
+#118 0x000000010000c352 in PyObject_Call (func=0x110881450, arg=0x110881390, kw=0x0) at Objects/abstract.c:2529
+#119 0x00000001000ac9ca in do_call [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4231
+#120 0x00000001000ac9ca in call_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4036
+#121 0x00000001000ac9ca in PyEval_EvalFrameEx (f=0x110937e00, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:2666
+#122 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x101426a30, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x110755650, argcount=2, kws=0x10025b068, kwcount=0, defs=0x10142dca8, defcount=1, closure=0x0) at Python/ceval.c:3253
+#123 0x0000000100037970 in function_call (func=0x101433500, arg=0x110755638, kw=0x110937ce0) at Objects/funcobject.c:526
+#124 0x000000010000c352 in PyObject_Call (func=0x101433500, arg=0x110755638, kw=0x110937ce0) at Objects/abstract.c:2529
+#125 0x00000001000ac539 in PyEval_EvalFrameEx (f=0x110937b10, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4326
+#126 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x1014267b0, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x110755410, argcount=2, kws=0x0, kwcount=0, defs=0x0, defcount=0, closure=0x0) at Python/ceval.c:3253
+#127 0x0000000100037970 in function_call (func=0x101433410, arg=0x1107553f8, kw=0x0) at Objects/funcobject.c:526
+#128 0x000000010000c352 in PyObject_Call (func=0x101433410, arg=0x1107553f8, kw=0x0) at Objects/abstract.c:2529
+#129 0x000000010001d57b in instancemethod_call (func=0x101433410, arg=0x1107553f8, kw=0x0) at Objects/classobject.c:2578
+#130 0x000000010000c352 in PyObject_Call (func=0x110771410, arg=0x1005c1f90, kw=0x0) at Objects/abstract.c:2529
+#131 0x000000010006d01a in slot_tp_call (self=<value temporarily unavailable, due to optimizations>, args=0x1005c1f90, kwds=0x0) at Objects/typeobject.c:5397
+#132 0x000000010000c352 in PyObject_Call (func=0x110878f90, arg=0x1005c1f90, kw=0x0) at Objects/abstract.c:2529
+#133 0x00000001000ac9ca in do_call [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4231
+#134 0x00000001000ac9ca in call_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4036
+#135 0x00000001000ac9ca in PyEval_EvalFrameEx (f=0x110936ae0, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:2666
+#136 0x00000001000af705 in PyEval_EvalFrameEx (f=0x1109361e0, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4099
+#137 0x00000001000af705 in PyEval_EvalFrameEx (f=0x1104f7fd0, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4099
+#138 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x101430e30, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x1107348d0, argcount=4, kws=0x11075ada0, kwcount=1, defs=0x10042ff48, defcount=10, closure=0x0) at Python/ceval.c:3253
+#139 0x0000000100037970 in function_call (func=0x10144b2a8, arg=0x110716ba8, kw=0x110920b70) at Objects/funcobject.c:526
+#140 0x000000010000c352 in PyObject_Call (func=0x10144b2a8, arg=0x110716ba8, kw=0x110920b70) at Objects/abstract.c:2529
+#141 0x000000010001d57b in instancemethod_call (func=0x10144b2a8, arg=0x110716ba8, kw=0x110920b70) at Objects/classobject.c:2578
+#142 0x000000010000c352 in PyObject_Call (func=0x1107712d0, arg=0x11087cc80, kw=0x110920b70) at Objects/abstract.c:2529
+#143 0x000000010006cc48 in slot_tp_init (self=<value temporarily unavailable, due to optimizations>, args=0x11087cc80, kwds=0x110920b70) at Objects/typeobject.c:5657
+#144 0x000000010006808d in type_call (type=<value temporarily unavailable, due to optimizations>, args=0x11087cc80, kwds=0x110920b70) at Objects/typeobject.c:735
+#145 0x000000010000c352 in PyObject_Call (func=0x10115d930, arg=0x11087cc80, kw=0x110920b70) at Objects/abstract.c:2529
+#146 0x00000001000ac9ca in do_call [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4231
+#147 0x00000001000ac9ca in call_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4036
+#148 0x00000001000ac9ca in PyEval_EvalFrameEx (f=0x11049e0c0, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:2666
+#149 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x1103619b0, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x11038d668, argcount=1, kws=0x0, kwcount=0, defs=0x0, defcount=0, closure=0x0) at Python/ceval.c:3253
+#150 0x0000000100037970 in function_call (func=0x110390e60, arg=0x11038d650, kw=0x0) at Objects/funcobject.c:526
+#151 0x000000010000c352 in PyObject_Call (func=0x110390e60, arg=0x11038d650, kw=0x0) at Objects/abstract.c:2529
+#152 0x000000010001d57b in instancemethod_call (func=0x110390e60, arg=0x11038d650, kw=0x0) at Objects/classobject.c:2578
+#153 0x000000010000c352 in PyObject_Call (func=0x110771230, arg=0x11038d650, kw=0x0) at Objects/abstract.c:2529
+#154 0x00000001000ac9ca in do_call [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4231
+#155 0x00000001000ac9ca in call_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4036
+#156 0x00000001000ac9ca in PyEval_EvalFrameEx (f=0x11049b6e0, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:2666
+#157 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x100471730, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x110476020, argcount=1, kws=0x110476028, kwcount=0, defs=0x0, defcount=0, closure=0x11038d4d0) at Python/ceval.c:3253
+#158 0x00000001000ae11b in fast_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4109
+#159 0x00000001000ae11b in PyEval_EvalFrameEx (f=0x110475e70, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4034
+#160 0x00000001000af705 in PyEval_EvalFrameEx (f=0x110475710, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4099
+#161 0x00000001000af705 in PyEval_EvalFrameEx (f=0x110474120, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4099
+#162 0x00000001000af705 in PyEval_EvalFrameEx (f=0x110471930, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4099
+#163 0x00000001000af705 in PyEval_EvalFrameEx (f=0x11045a260, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4099
+#164 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x10049b0b0, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x11038b6c8, argcount=0, kws=0x1003602b0, kwcount=13, defs=0x0, defcount=0, closure=0x0) at Python/ceval.c:3253
+#165 0x00000001000ae11b in fast_function [inlined] () at /Users/guyer/.homebrew/build/Python-2.7.2/Python/ceval.c:4109
+#166 0x00000001000ae11b in PyEval_EvalFrameEx (f=0x100360130, throwflag=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:4034
+#167 0x00000001000b0102 in PyEval_EvalCodeEx (co=0x1004872b0, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>, args=0x0, argcount=0, kws=0x0, kwcount=0, defs=0x0, defcount=0, closure=0x0) at Python/ceval.c:3253
+#168 0x00000001000b0226 in PyEval_EvalCode (co=<value temporarily unavailable, due to optimizations>, globals=<value temporarily unavailable, due to optimizations>, locals=<value temporarily unavailable, due to optimizations>) at Python/ceval.c:667
+#169 0x00000001000cc3b2 in run_mod (mod=<value temporarily unavailable, due to optimizations>, filename=<value temporarily unavailable, due to optimizations>, globals=0x10031c340, locals=0x10031c340, flags=<value temporarily unavailable, due to optimizations>, arena=<value temporarily unavailable, due to optimizations>) at Python/pythonrun.c:1346
+#170 0x00000001000cc47e in PyRun_FileExFlags (fp=0x7fff70e52f60, filename=0x7fff5fbfea1f "setup.py", start=257, globals=0x10031c340, locals=0x10031c340, closeit=1, flags=0x7fff5fbfe720) at Python/pythonrun.c:1332
+#171 0x00000001000cd9a9 in PyRun_SimpleFileExFlags (fp=0x7fff70e52f60, filename=0x7fff5fbfea1f "setup.py", closeit=1, flags=0x7fff5fbfe720) at Python/pythonrun.c:936
+#172 0x00000001000e0e9c in Py_Main (argc=2748624, argv=0x7fff5fbfe7c8) at Modules/main.c:599
+#173 0x0000000100000e22 in _start ()
+#174 0x0000000100000d41 in start ()

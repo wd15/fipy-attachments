@@ -1,0 +1,12 @@
+Index: meshes/numMesh/mesh.py
+===================================================================
+--- meshes/numMesh/mesh.py	(revision 3652)
++++ meshes/numMesh/mesh.py	(working copy)
+@@ -180,6 +184,7 @@
+         _CommonMesh._calcTopology(self)
+ 
+         ## calculate new geometry
++        self._calcFaceCellToCellNormals()
+         self._calcFaceToCellDistanceRatio()
+         self._calcCellToCellDistances()
+         self._calcScaledGeometry()

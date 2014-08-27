@@ -1,0 +1,90 @@
+Index: fipy/viewers/gnuplotViewer/gnuplot1DViewer.py
+===================================================================
+--- fipy/viewers/gnuplotViewer/gnuplot1DViewer.py	(revision 3720)
++++ fipy/viewers/gnuplotViewer/gnuplot1DViewer.py	(working copy)
+@@ -39,7 +39,9 @@
+ from fipy.tools import numerix
+ 
+ from gnuplotViewer import _GnuplotViewer
++from fipy.variables.faceVariable import FaceVariable
+ 
++
+ class Gnuplot1DViewer(_GnuplotViewer):
+     """Displays a y vs. x plot of one or more 1D `CellVariable` objects.
+ 
+@@ -77,11 +79,20 @@
+         for var in self.vars:
+             # Python 2.6 made 'with' a keyward (deprecation warnings have been issued since 2.5)
+             # this was addressed in Gnuplot.py in r299, in 2007
+-            tupleOfGnuplotData += (Gnuplot.Data(numerix.array(var.getMesh().getCellCenters()[0]), 
+-                                                numerix.array(var.getValue()),
+-                                                title=var.getName(),
++            yvals = numerix.array(var.getValue())
++            title = var.getName()
++            if var._getVariableClass() is not FaceVariable:
++                tupleOfGnuplotData += (Gnuplot.Data(numerix.array(var.getMesh().getCellCenters()[0]), 
++                                                yvals,
++                                                title=title,
+                                                 with_='lines'),)
+-                              
++            else:
++                #assume this error is because we plot a facevariable:
++                tupleOfGnuplotData += (Gnuplot.Data(numerix.array(var.getMesh().getFaceCenters()[0]), 
++                                                yvals,
++                                                title=title,
++                                                with_='lines'),)
++
+         apply(self.g.plot, tupleOfGnuplotData)
+     
+ if __name__ == "__main__": 
+Index: fipy/viewers/gnuplotViewer/gnuplot2DViewer.py
+===================================================================
+--- fipy/viewers/gnuplotViewer/gnuplot2DViewer.py	(revision 3720)
++++ fipy/viewers/gnuplotViewer/gnuplot2DViewer.py	(working copy)
+@@ -40,6 +40,7 @@
+ 
+ from gnuplotViewer import _GnuplotViewer
+ from fipy.meshes.grid2D import Grid2D
++from fipy.variables.faceVariable import FaceVariable
+ 
+ class Gnuplot2DViewer(_GnuplotViewer):
+     """
+@@ -93,18 +94,30 @@
+         self.g('set pm3d at st solid')
+         mesh = self.vars[0].getMesh()
+ 
+-        if isinstance(mesh, Grid2D.__class__):
+-            nx, ny = mesh.getShape()
++        facevar = False
++        if self.vars[0]._getVariableClass() is not FaceVariable:
++            if isinstance(mesh, Grid2D.__class__):
++                nx, ny = mesh.getShape()
++            else:
++                N = int(numerix.sqrt(mesh.getNumberOfCells()))
++                nx, ny = N, N
+         else:
+-            N = int(numerix.sqrt(mesh.getNumberOfCells()))
++            facevar = True
++            N = int(numerix.sqrt(mesh._getNumberOfFaces()))
+             nx, ny = N, N
+-            
++        print 'facevar', facevar
+         self.g('set dgrid3d %i, %i, 2' % (ny, nx))
+ 
+-        x, y = mesh.getCellCenters()
+-        import Gnuplot
+-        data = Gnuplot.Data(numerix.array(x), numerix.array(y),
+-                            self.vars[0].getValue())
++        if not facevar:
++            x, y = mesh.getCellCenters()
++            import Gnuplot
++            data = Gnuplot.Data(numerix.array(x), numerix.array(y),
++                                self.vars[0].getValue())
++        else:
++            x, y = mesh.getFaceCenters()
++            import Gnuplot
++            data = Gnuplot.Data(numerix.array(x), numerix.array(y),
++                                self.vars[0].getValue())
+ 
+         self.g.splot(data)
+ 

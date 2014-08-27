@@ -1,0 +1,265 @@
+Index: meshes/common/mesh.py
+===================================================================
+--- meshes/common/mesh.py	(revision 3646)
++++ meshes/common/mesh.py	(working copy)
+@@ -59,9 +59,26 @@
+             'volume': 1.
+         }
+         
++        #store if mesh is periodic, and if so the IDs as non periodic mesh
++        self.periodicBC = False
++        self.nonPeriodicCellVertexIDs = None
++        self.nonPeriodicOrderedCellVertexIDs = None
++        
+         self._calcTopology()
+         self._calcGeometry()
+-    
++
++    def __sub__(self, other):
++        """
++        raise a helpfull type error
++        """
++        raise TypeError, "'-' is unsupported for meshes, use '+'"
++
++    def __div__(self, other):
++        """
++        raise a helpfull type error
++        """
++        raise TypeError, "'/' is unsupported for meshes, use '*'"
++
+     def __add__(self, other):
+         """
+         Either translate a `Mesh` or concatenate two `Mesh` objects.
+Index: meshes/numMesh/periodicGrid2D.py
+===================================================================
+--- meshes/numMesh/periodicGrid2D.py	(revision 3646)
++++ meshes/numMesh/periodicGrid2D.py	(working copy)
+@@ -96,37 +96,50 @@
+         ...                             [1, 2, 4, 5],
+         ...                             [0, 1, 3, 4]]))
+         True
++
++        >>> def testadd():
++        ...     try:
++        ...         meshnew = mesh + [[1.], [0]]
++        ...         return False
++        ...     except TypeError:
++        ...         return True
++        >>> testadd()
++        True
++
++        >>> def testmult():
++        ...     try:
++        ...         meshnew = mesh * 2.
++        ...         return False
++        ...     except TypeError:
++        ...         return True
++        >>> testmult()
++        True
++
+     """
+     def __init__(self, dx = 1., dy = 1., nx = None, ny = None):
+         Grid2D.__init__(self, dx = dx, dy = dy, nx = nx, ny = ny)
+-        self.nonPeriodicCellVertexIDs = Grid2D._getCellVertexIDs(self)
+-        self.nonPeriodicOrderedCellVertexIDs = Grid2D._getOrderedCellVertexIDs(self)
+-        from fipy.tools import numerix
+-        self._connectFaces(numerix.nonzero(self.getFacesLeft()), 
+-                           numerix.nonzero(self.getFacesRight()))
+-        self._connectFaces(numerix.nonzero(self.getFacesBottom()), 
+-                           numerix.nonzero(self.getFacesTop()))
++        self._makeperiodic()
++    
++    def _makeperiodic(self):
++        self._connectFaces(self.getFacesLeft(), 
++                           self.getFacesRight())
++        self._connectFaces(self.getFacesBottom(), 
++                           self.getFacesTop())
+ 
+-    def _getCellVertexIDs(self):
+-        return self.nonPeriodicCellVertexIDs
+-
+-    def _getOrderedCellVertexIDs(self):
+-        return self.nonPeriodicOrderedCellVertexIDs
+-               
+ class PeriodicGrid2DLeftRight(PeriodicGrid2D):
+     def __init__(self, dx = 1., dy = 1., nx = None, ny = None):
+-        Grid2D.__init__(self, dx = dx, dy = dy, nx = nx, ny = ny)
+-        self.nonPeriodicCellVertexIDs = Grid2D._getCellVertexIDs(self)
+-        self.nonPeriodicOrderedCellVertexIDs = Grid2D._getOrderedCellVertexIDs(self)
++        PeriodicGrid2D.__init__(self, dx = dx, dy = dy, nx = nx, ny = ny)
++
++    def _makeperiodic(self):
+         from fipy.tools import numerix
+         self._connectFaces(numerix.nonzero(self.getFacesLeft()), 
+                            numerix.nonzero(self.getFacesRight()))
+ 
+ class PeriodicGrid2DTopBottom(PeriodicGrid2D):
+     def __init__(self, dx = 1., dy = 1., nx = None, ny = None):
+-        Grid2D.__init__(self, dx = dx, dy = dy, nx = nx, ny = ny)
+-        self.nonPeriodicCellVertexIDs = Grid2D._getCellVertexIDs(self)
+-        self.nonPeriodicOrderedCellVertexIDs = Grid2D._getOrderedCellVertexIDs(self)
++        PeriodicGrid2D.__init__(self, dx = dx, dy = dy, nx = nx, ny = ny)
++
++    def _makeperiodic(self):
+         from fipy.tools import numerix
+         self._connectFaces(numerix.nonzero(self.getFacesBottom()), 
+                            numerix.nonzero(self.getFacesTop()))
+Index: meshes/numMesh/mesh.py
+===================================================================
+--- meshes/numMesh/mesh.py	(revision 3646)
++++ meshes/numMesh/mesh.py	(working copy)
+@@ -71,13 +71,19 @@
+ 
+     def __add__(self, other):
+         if(isinstance(other, Mesh)):
++            if self.periodicBC or other.periodicBC:
++                raise TypeError, 'Periodic meshes cannot be added'
+             return self._concatenate(other, smallNumber = 1e-15)
+         else:
++            if self.periodicBC:
++                raise TypeError, 'Periodic meshes cannot be added to'
+             return self._translate(other)
+ 
+     __radd__ = __add__
+     
+     def __mul__(self, factor):
++        if self.periodicBC:
++            raise TypeError, 'Periodic meshes cannot be scaled'
+         newCoords = self.vertexCoords * factor
+         newmesh = Mesh(vertexCoords=newCoords, 
+                        faceVertexIDs=numerix.array(self.faceVertexIDs), 
+@@ -155,6 +161,7 @@
+         numerix.put(self.cellDistances, faces0, MA.take(faceToCellDistances0 + faceToCellDistances1, faces0))
+ 
+         ## change the direction of the face normals for faces0
++
+         for dim in range(self.getDim()):
+             faceNormals = self.faceNormals[dim].copy()
+             numerix.put(faceNormals, faces0, MA.take(faceNormals, faces1))
+@@ -180,11 +187,15 @@
+         _CommonMesh._calcTopology(self)
+ 
+         ## calculate new geometry
++        self._calcFaceCellToCellNormals()
+         self._calcFaceToCellDistanceRatio()
+         self._calcCellToCellDistances()
+         self._calcScaledGeometry()
+         self._calcFaceAspectRatios()
+         
++        ## set flag, mesh changes not allowed anymore
++        self.periodicBC = True
++        
+     def _getConcatenableMesh(self):
+         return self
+         
+@@ -490,9 +501,11 @@
+ 
+         self.faceCenters = MA.filled(MA.average(faceVertexCoords, axis=1))
+ 
+-        
+-
+     def _calcFaceNormals(self):
++        ## test if not periodic. Periodic mesh inverts normals on connected faces,
++        ## this may not be undone by a recalculation.
++        if self.periodicBC:
++            raise TypeError, 'Periodic meshes do not allow recalculation of face normals'
+         faceVertexIDs = MA.filled(self.faceVertexIDs, 0)
+         faceVertexCoords = numerix.take(self.vertexCoords, faceVertexIDs, axis=1)
+         t1 = faceVertexCoords[:,1,:] - faceVertexCoords[:,0,:]
+@@ -590,13 +603,16 @@
+         return self.faceCenters
+ 
+     def _getOrderedCellVertexIDs(self):
++        if self.nonPeriodicOrderedCellVertexIDs is not None:
++            return self.nonPeriodicOrderedCellVertexIDs
+         return self._getCellVertexIDs()
+ 
+     def _getCellDistanceNormals(self):
+         return self.getCellDistanceVectors() / self.getCellDistances()
+         
+     def _getCellVertexIDs(self):
+-
++        if self.nonPeriodicCellVertexIDs is not None:
++            return self.nonPeriodicCellVertexIDs
+         ## Get all the vertices from all the faces for each cell
+         cellFaceVertices = numerix.take(self.faceVertexIDs, self.cellFaceIDs, axis=1)
+ 
+Index: meshes/numMesh/uniformGrid2D.py
+===================================================================
+--- meshes/numMesh/uniformGrid2D.py	(revision 3646)
++++ meshes/numMesh/uniformGrid2D.py	(working copy)
+@@ -112,6 +112,10 @@
+             'volume': 1.
+         }
+ 
++        self.periodicBC = False
++        self.nonPeriodicCellVertexIDs = None
++        self.nonPeriodicOrderedCellVertexIDs = None
++
+         self.setScale(value = scale)
+         
+     def _translate(self, vector):
+Index: meshes/numMesh/mesh2D.py
+===================================================================
+--- meshes/numMesh/mesh2D.py	(revision 3646)
++++ meshes/numMesh/mesh2D.py	(working copy)
+@@ -66,6 +66,10 @@
+         self.faceAreas = numerix.sqrtDot(tangent, tangent)
+ 
+     def _calcFaceNormals(self):
++        ## test if not periodic. Periodic mesh inverts normals on connected faces,
++        ## this may not be undone by a recalculation.
++        if self.periodicBC:
++            raise TypeError, 'Periodic meshes do not allow recalculation of face normals'
+         faceVertexCoords = numerix.take(self.vertexCoords, self.faceVertexIDs, axis=1)
+         t1 = faceVertexCoords[:,1,:] - faceVertexCoords[:,0,:]
+         self.faceNormals = t1.copy()
+@@ -96,6 +100,8 @@
+         return newmesh
+ 
+     def __mul__(self, factor):
++        if self.periodicBC:
++            raise TypeError, 'Periodic meshes cannot be scaled'
+         newCoords = self.vertexCoords * factor
+         newmesh = Mesh2D(newCoords, self.faceVertexIDs, self.cellFaceIDs)
+         return newmesh
+@@ -103,8 +109,39 @@
+     def _concatenate(self, other, smallNumber):
+         return Mesh2D(**self._getAddedMeshValues(other._getConcatenableMesh(), smallNumber))
+ 
++    def _connectFaces(self, faces1=None, faces2=None):
++        """
++        Merge faces on the same mesh. This is used to create periodic
++        meshes. The first list of faces, `faces1`, will be identified with 
++        the `faces2` faces. 
++        They aren't deleted but their
++        adjacent cells are made to point at `faces1`. The list
++        `faces2` are not altered, they still remain as members of
++        exterior faces.
++        
++        If faces1==None, then the left faces are used by default
++        If faces2==None, then the right faces are used by default
++        
++        Warning: this method cannot be called for UniformGrid2D meshes.
++        """
++        self.nonPeriodicCellVertexIDs = self._getCellVertexIDs().copy()
++        self.nonPeriodicOrderedCellVertexIDs = self._getOrderedCellVertexIDs().copy()
++        from fipy.tools import numerix
++        if faces1 is not None:
++            lf = faces1
++        else:
++            lf = self.getFacesLeft()
++        if faces2 is not None:
++            rf = faces2
++        else:
++            rf = self.getFacesRight()
++        Mesh._connectFaces(self, numerix.nonzero(lf), 
++                           numerix.nonzero(rf))
++
+     def _getOrderedCellVertexIDs(self):
+         from fipy.tools.numerix import take
++        if self.nonPeriodicOrderedCellVertexIDs is not None:
++            return self.nonPeriodicOrderedCellVertexIDs
+         NFac = self._getMaxFacesPerCell()
+ 
+         # numpy 1.1's MA.take doesn't like FlatIter. Call ravel() instead.

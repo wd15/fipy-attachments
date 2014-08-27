@@ -1,0 +1,25 @@
+Index: meshes/common/mesh.py
+===================================================================
+--- meshes/common/mesh.py	(revision 3646)
++++ meshes/common/mesh.py	(working copy)
+@@ -61,7 +61,19 @@
+         
+         self._calcTopology()
+         self._calcGeometry()
+-    
++
++    def __sub__(self, other):
++        """
++        raise a helpfull type error
++        """
++        raise TypeError, "'-' is unsupported for meshes, use '+'"
++
++    def __div__(self, other):
++        """
++        raise a helpfull type error
++        """
++        raise TypeError, "'/' is unsupported for meshes, use '*'"
++
+     def __add__(self, other):
+         """
+         Either translate a `Mesh` or concatenate two `Mesh` objects.

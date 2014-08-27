@@ -1,0 +1,29 @@
+Index: fipy/viewers/gnuplotViewer/gnuplot1DViewer.py
+===================================================================
+--- fipy/viewers/gnuplotViewer/gnuplot1DViewer.py	(revision 3652)
++++ fipy/viewers/gnuplotViewer/gnuplot1DViewer.py	(working copy)
+@@ -77,11 +77,20 @@
+         for var in self.vars:
+             # Python 2.6 made 'with' a keyward (deprecation warnings have been issued since 2.5)
+             # this was addressed in Gnuplot.py in r299, in 2007
+-            tupleOfGnuplotData += (Gnuplot.Data(numerix.array(var.getMesh().getCellCenters()[0]), 
+-                                                numerix.array(var.getValue()),
+-                                                title=var.getName(),
++            yvals = numerix.array(var.getValue())
++            title = var.getName()
++            try:
++                tupleOfGnuplotData += (Gnuplot.Data(numerix.array(var.getMesh().getCellCenters()[0]), 
++                                                yvals,
++                                                title=title,
+                                                 with_='lines'),)
+-                              
++            except ValueError:
++                #assume this error is because we plot a facevariable:
++                tupleOfGnuplotData += (Gnuplot.Data(numerix.array(var.getMesh().getFaceCenters()[0]), 
++                                                yvals,
++                                                title=title,
++                                                with_='lines'),)
++
+         apply(self.g.plot, tupleOfGnuplotData)
+     
+ if __name__ == "__main__": 

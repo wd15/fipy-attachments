@@ -1,0 +1,1088 @@
+import fipy.solvers.test ... ok
+import fipy.models.test ... ok
+import fipy.terms.test ... ok
+import fipy.tools.test ... ok
+import fipy.meshes.numMesh.test ... ok
+import fipy.variables.test ... ok
+import fipy.viewers.test ... ok
+import fipy.boundaryConditions.test ... ok
+import fipy.solvers.linearScipyGMRESSolver ... ok
+import fipy.solvers.linearScipyCGSolver ... ok
+Doctest: fipy.solvers.linearScipyGMRESSolver.LinearScipyGMRESSolver._solve ... ok
+Doctest: fipy.solvers.linearScipyCGSolver.LinearScipyCGSolver._solve ... ok
+import fipy.models.levelSet.test ... ok
+import fipy.models.levelSet.electroChem.test ... ok
+import fipy.models.levelSet.advection.advectionTerm ... ok
+import fipy.models.levelSet.advection.higherOrderAdvectionTerm ... ok
+import fipy.models.levelSet.distanceFunction.distanceVariable ... ok
+import fipy.models.levelSet.surfactant.surfactantVariable ... ok
+import fipy.models.levelSet.distanceFunction.levelSetDiffusionVariable ... ok
+import fipy.models.levelSet.surfactant.adsorbingSurfactantEquation ... ok
+import fipy.models.levelSet.surfactant.convectionCoeff ... ok
+import fipy.models.levelSet.electroChem.metalIonSourceVariable ... ok
+import fipy.models.levelSet.electroChem.metalIonDiffusionEquation ... ok
+import fipy.models.levelSet.electroChem.gapFillMesh ... ok
+Doctest: fipy.models.levelSet.electroChem.metalIonSourceVariable._MetalIonSourceVariable ... ok
+Doctest: fipy.models.levelSet.electroChem.metalIonDiffusionEquation.buildMetalIonDiffusionEquation ... ok
+Doctest: fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh ... sh: gmsh: command not found
+FAIL
+Doctest: fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh ... sh: gmsh: command not found
+FAIL
+Doctest: fipy.models.levelSet.advection.advectionTerm._AdvectionTerm ... ok
+Doctest: fipy.models.levelSet.advection.higherOrderAdvectionTerm._HigherOrderAdvectionTerm ... ok
+Doctest: fipy.models.levelSet.distanceFunction.distanceVariable.DistanceVariable ... ok
+Doctest: fipy.models.levelSet.distanceFunction.distanceVariable.DistanceVariable._getCellInterfaceFlag ... ok
+Doctest: fipy.models.levelSet.distanceFunction.distanceVariable.DistanceVariable._getCellInterfaceNormals ... ok
+Doctest: fipy.models.levelSet.distanceFunction.distanceVariable.DistanceVariable._getCellValueOverFaces ... ok
+Doctest: fipy.models.levelSet.distanceFunction.distanceVariable.DistanceVariable._getInterfaceFlag ... ok
+Doctest: fipy.models.levelSet.distanceFunction.distanceVariable.DistanceVariable._getInterfaceNormals ... ok
+Doctest: fipy.models.levelSet.distanceFunction.distanceVariable.DistanceVariable._getLevelSetNormals ... ok
+Doctest: fipy.models.levelSet.distanceFunction.distanceVariable.DistanceVariable.getCellInterfaceAreas ... ok
+Doctest: fipy.models.levelSet.surfactant.surfactantVariable.SurfactantVariable.__init__ ... ok
+Doctest: fipy.models.levelSet.distanceFunction.levelSetDiffusionVariable._LevelSetDiffusionVariable ... ok
+Doctest: fipy.models.levelSet.surfactant.adsorbingSurfactantEquation.AdsorbingSurfactantEquation ... ok
+Doctest: fipy.models.levelSet.surfactant.convectionCoeff._ConvectionCoeff.__init__ ... ok
+import fipy.terms.cellTerm ... ok
+import fipy.terms.diffusionTerm ... ok
+import fipy.terms.term ... ok
+import fipy.terms.convectionTerm ... ok
+import fipy.terms.transientTerm ... ok
+import fipy.terms.powerLawConvectionTerm ... ok
+import fipy.terms.exponentialConvectionTerm ... ok
+Doctest: fipy.terms.cellTerm.CellTerm._test ... ok
+Doctest: fipy.terms.diffusionTerm.DiffusionTerm.__neg__ ... ok
+Doctest: fipy.terms.diffusionTerm.DiffusionTerm._test ... ok
+Doctest: fipy.terms.term.Term.__eq__ ... ok
+Doctest: fipy.terms.term.Term.__neg__ ... ok
+Doctest: fipy.terms.term.Term.__pos__ ... ok
+Doctest: fipy.terms.term.Term.__radd__ ... ok
+Doctest: fipy.terms.term.Term.__repr__ ... ok
+Doctest: fipy.terms.term.Term.__rsub__ ... ok
+Doctest: fipy.terms.term.Term.__sub__ ... ok
+Doctest: fipy.terms.convectionTerm.ConvectionTerm.__init__ ... ok
+Doctest: fipy.terms.convectionTerm.ConvectionTerm.__neg__ ... ok
+Doctest: fipy.terms.transientTerm.TransientTerm ... ok
+Doctest: fipy.terms.powerLawConvectionTerm.PowerLawConvectionTerm._Alpha._calcValuePy ... ok
+Doctest: fipy.terms.exponentialConvectionTerm.ExponentialConvectionTerm._Alpha._calcValue ... ok
+import fipy.tools.sparseMatrix ... ok
+import fipy.tools.dimensions.physicalField ... ok
+import fipy.tools.numerix ... ok
+import fipy.tools.dump ... ok
+import fipy.tools.vector ... ok
+Doctest: fipy.tools.sparseMatrix._SparseIdentityMatrix.__init__ ... ok
+Doctest: fipy.tools.sparseMatrix._SparseMatrix.__mul__ ... ok
+Doctest: fipy.tools.sparseMatrix._SparseMatrix.__neg__ ... ok
+Doctest: fipy.tools.sparseMatrix._SparseMatrix.__radd__ ... ok
+Doctest: fipy.tools.sparseMatrix._SparseMatrix.addAt ... ok
+Doctest: fipy.tools.sparseMatrix._SparseMatrix.put ... ok
+Doctest: fipy.tools.sparseMatrix._SparseMatrix.putDiagonal ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__abs__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__array__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__div__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__float__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__getitem__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__gt__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__init__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__mod__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__neg__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__pow__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__radd__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__repr__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__rmul__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__setitem__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__str__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.__sub__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.arccos ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.arccosh ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.arcsin ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.arctan ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.arctan2 ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.arctanh ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.ceil ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.conjugate ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.convertToUnit ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.copy ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.cos ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.cosh ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.dot ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.floor ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.getNumericValue ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.getUnit ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.inBaseUnits ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.inSIUnits ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.inUnitsOf ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.log ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.log10 ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.put ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.reshape ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.sin ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.sinh ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.sqrt ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.sum ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.take ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.tan ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.tanh ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalField.tostring ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.__cmp__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.__div__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.__pow__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.__rdiv__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.__rmul__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.__str__ ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.conversionFactorTo ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.conversionTupleTo ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.isAngle ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.isCompatible ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.isDimensionless ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.isDimensionlessOrAngle ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.name ... ok
+Doctest: fipy.tools.dimensions.physicalField.PhysicalUnit.setName ... ok
+Doctest: fipy.tools.dimensions.physicalField._Scale ... ok
+Doctest: fipy.tools.dimensions.physicalField._findUnit ... ok
+Doctest: fipy.tools.numerix ... ok
+Doctest: fipy.tools.numerix.arccos ... ok
+Doctest: fipy.tools.numerix.arccosh ... ok
+Doctest: fipy.tools.numerix.arcsin ... ok
+Doctest: fipy.tools.numerix.arcsinh ... ok
+Doctest: fipy.tools.numerix.arctan ... ok
+Doctest: fipy.tools.numerix.arctan2 ... ok
+Doctest: fipy.tools.numerix.arctanh ... ok
+Doctest: fipy.tools.numerix.ceil ... ok
+Doctest: fipy.tools.numerix.conjugate ... ok
+Doctest: fipy.tools.numerix.cos ... ok
+Doctest: fipy.tools.numerix.cosh ... ok
+Doctest: fipy.tools.numerix.dot ... ok
+Doctest: fipy.tools.numerix.floor ... ok
+Doctest: fipy.tools.numerix.getShape ... ok
+Doctest: fipy.tools.numerix.getTypecode ... ok
+Doctest: fipy.tools.numerix.indices ... ok
+Doctest: fipy.tools.numerix.log ... ok
+Doctest: fipy.tools.numerix.log10 ... ok
+Doctest: fipy.tools.numerix.max ... ok
+Doctest: fipy.tools.numerix.min ... ok
+Doctest: fipy.tools.numerix.put ... /usr/lib/python2.4/site-packages/numpy/core/ma.py:604: UserWarning: Cannot automatically convert masked array to numeric because data
+    is masked in one or more locations.
+  warnings.warn("Cannot automatically convert masked array to "\
+ok
+Doctest: fipy.tools.numerix.sin ... ok
+Doctest: fipy.tools.numerix.sinh ... ok
+Doctest: fipy.tools.numerix.sqrt ... ok
+Doctest: fipy.tools.numerix.tan ... ok
+Doctest: fipy.tools.numerix.tanh ... ok
+Doctest: fipy.tools.numerix.tostring ... ok
+Doctest: fipy.tools.dump.write ... ok
+Doctest: fipy.tools.vector.prune ... ok
+import fipy.meshes.numMesh.mesh ... ok
+import fipy.meshes.numMesh.mesh2D ... ok
+import fipy.meshes.numMesh.grid1D ... ok
+import fipy.meshes.numMesh.grid2D ... ok
+import fipy.meshes.numMesh.grid3D ... ok
+import fipy.meshes.numMesh.tri2D ... ok
+import fipy.meshes.numMesh.gmshImport ... ok
+import fipy.meshes.numMesh.refinedMesh ... ok
+import fipy.meshes.numMesh.periodicGrid1D ... ok
+import fipy.meshes.numMesh.periodicGrid2D ... ok
+import fipy.meshes.numMesh.uniformGrid1D ... ok
+import fipy.meshes.numMesh.uniformGrid2D ... ok
+import fipy.meshes.numMesh.uniformGrid3D ... ok
+Doctest: fipy.meshes.numMesh.mesh.Mesh._connectFaces ... ok
+Doctest: fipy.meshes.numMesh.mesh.Mesh._test ... ok
+Doctest: fipy.meshes.numMesh.mesh2D.Mesh2D._test ... ok
+Doctest: fipy.meshes.numMesh.grid1D.Grid1D ... ok
+Doctest: fipy.meshes.numMesh.grid2D.Grid2D._test ... ok
+Doctest: fipy.meshes.numMesh.grid2D.Grid2D.getFacesBottom ... ok
+Doctest: fipy.meshes.numMesh.grid2D.Grid2D.getFacesLeft ... ok
+Doctest: fipy.meshes.numMesh.grid2D.Grid2D.getFacesRight ... ok
+Doctest: fipy.meshes.numMesh.grid2D.Grid2D.getFacesTop ... ok
+Doctest: fipy.meshes.numMesh.grid3D.Grid3D._test ... ok
+Doctest: fipy.meshes.numMesh.grid3D.Grid3D.getFacesBack ... ok
+Doctest: fipy.meshes.numMesh.grid3D.Grid3D.getFacesBottom ... ok
+Doctest: fipy.meshes.numMesh.grid3D.Grid3D.getFacesFront ... ok
+Doctest: fipy.meshes.numMesh.grid3D.Grid3D.getFacesLeft ... ok
+Doctest: fipy.meshes.numMesh.grid3D.Grid3D.getFacesRight ... ok
+Doctest: fipy.meshes.numMesh.grid3D.Grid3D.getFacesTop ... ok
+Doctest: fipy.meshes.numMesh.tri2D.Tri2D._test ... ok
+Doctest: fipy.meshes.numMesh.gmshImport ... sh: gmsh: command not found
+sh: gmsh: command not found
+FAIL
+Doctest: fipy.meshes.numMesh.gmshImport.GmshImporter3D ... ok
+Doctest: fipy.meshes.numMesh.refinedMesh ... ok
+Doctest: fipy.meshes.numMesh.periodicGrid1D.PeriodicGrid1D ... ok
+Doctest: fipy.meshes.numMesh.periodicGrid2D.PeriodicGrid2D ... ok
+Doctest: fipy.meshes.numMesh.uniformGrid1D.UniformGrid1D ... ok
+Doctest: fipy.meshes.numMesh.uniformGrid2D.UniformGrid2D._test ... ok
+Doctest: fipy.meshes.numMesh.uniformGrid3D.UniformGrid3D._test ... ok
+import fipy.variables.vectorCellVariable ... ok
+import fipy.variables.vectorFaceVariable ... ok
+import fipy.variables.cellVolumeAverageVariable ... ok
+import fipy.variables.variable ... ok
+import fipy.variables.cellVariable ... ok
+import fipy.variables.betaNoiseVariable ... ok
+import fipy.variables.exponentialNoiseVariable ... ok
+import fipy.variables.gammaNoiseVariable ... ok
+import fipy.variables.gaussianNoiseVariable ... ok
+import fipy.variables.uniformNoiseVariable ... ok
+import fipy.variables.modularVariable ... ok
+Doctest: fipy.variables.vectorCellVariable.VectorCellVariable.getArithmeticFaceValue ... ok
+Doctest: fipy.variables.vectorCellVariable.VectorCellVariable.getHarmonicFaceValue ... ok
+Doctest: fipy.variables.vectorFaceVariable.VectorFaceVariable._testArithmetic ... ok
+Doctest: fipy.variables.cellVolumeAverageVariable._CellVolumeAverageVariable ... ok
+Doctest: fipy.variables.variable.Variable.__abs__ ... ok
+Doctest: fipy.variables.variable.Variable.__and__ ... ok
+Doctest: fipy.variables.variable.Variable.__array__ ... FAIL
+Doctest: fipy.variables.variable.Variable.__array_wrap__ ... ok
+Doctest: fipy.variables.variable.Variable.__call__ ... ok
+Doctest: fipy.variables.variable.Variable.__eq__ ... ok
+Doctest: fipy.variables.variable.Variable.__ge__ ... ok
+Doctest: fipy.variables.variable.Variable.__getitem__ ... ok
+Doctest: fipy.variables.variable.Variable.__gt__ ... ok
+Doctest: fipy.variables.variable.Variable.__init__ ... ok
+Doctest: fipy.variables.variable.Variable.__le__ ... ok
+Doctest: fipy.variables.variable.Variable.__lt__ ... ok
+Doctest: fipy.variables.variable.Variable.__ne__ ... ok
+Doctest: fipy.variables.variable.Variable.__or__ ... ok
+Doctest: fipy.variables.variable.Variable._execInline ... ok
+Doctest: fipy.variables.variable.Variable._getCstring ... ok
+Doctest: fipy.variables.variable.Variable._getOperatorVariableClass ... ok
+Doctest: fipy.variables.variable.Variable._getUnaryOperatorVariable ... ok
+Doctest: fipy.variables.variable.Variable._take ... ok
+Doctest: fipy.variables.variable.Variable._testBinOp ... ok
+Doctest: fipy.variables.variable.Variable.allclose ... ok
+Doctest: fipy.variables.variable.Variable.copy ... ok
+Doctest: fipy.variables.variable.Variable.getShape ... ok
+Doctest: fipy.variables.variable.Variable.getTypecode ... ok
+Doctest: fipy.variables.variable.Variable.getUnit ... ok
+Doctest: fipy.variables.variable.Variable.getValue ... ok
+Doctest: fipy.variables.variable.Variable.inBaseUnits ... ok
+Doctest: fipy.variables.variable.Variable.inUnitsOf ... ok
+Doctest: fipy.variables.variable.Variable.setValue ... ok
+Doctest: fipy.variables.variable.Variable.sqrt ... ok
+Doctest: fipy.variables.cellVariable.CellVariable ... ok
+Doctest: fipy.variables.cellVariable.CellVariable.getArithmeticFaceValue ... ok
+Doctest: fipy.variables.cellVariable.CellVariable.getCellVolumeAverage ... ok
+Doctest: fipy.variables.cellVariable.CellVariable.getFaceValue ... ok
+Doctest: fipy.variables.cellVariable.CellVariable.getHarmonicFaceValue ... ok
+Doctest: fipy.variables.cellVariable.CellVariable.getLeastSquaresGrad ... ok
+Doctest: fipy.variables.cellVariable.CellVariable.getOld ... ok
+Doctest: fipy.variables.cellVariable.CellVariable.setValue ... ok
+Doctest: fipy.variables.betaNoiseVariable.BetaNoiseVariable ... ok
+Doctest: fipy.variables.exponentialNoiseVariable.ExponentialNoiseVariable ... ok
+Doctest: fipy.variables.gammaNoiseVariable.GammaNoiseVariable ... ok
+Doctest: fipy.variables.gaussianNoiseVariable.GaussianNoiseVariable ... ok
+Doctest: fipy.variables.uniformNoiseVariable.UniformNoiseVariable ... ok
+Doctest: fipy.variables.modularVariable.ModularVariable ... ok
+Doctest: fipy.variables.modularVariable.ModularVariable._setValue ... ok
+Doctest: fipy.variables.modularVariable.ModularVariable.updateOld ... ok
+import fipy.viewers.mayaviViewer.lines ... ok
+Doctest: fipy.viewers.mayaviViewer.lines._getOrderedLines ... ok
+import fipy.boundaryConditions.boundaryCondition ... ok
+Doctest: fipy.boundaryConditions.boundaryCondition.BoundaryCondition.__init__ ... ok
+import examples.convection.test ... ok
+import examples.diffusion.test ... ok
+import examples.phase.test ... ok
+import examples.elphf.test ... ok
+import examples.levelSet.test ... ok
+import examples.chemotaxis.test ... ok
+import examples.cahnHilliard.test ... ok
+import examples.flow.test ... ok
+import examples.convection.exponential1D.input ... ok
+import examples.convection.exponential1D.tri2Dinput ... ok
+import examples.convection.exponential2D.input ... ok
+import examples.convection.exponential1DBack.input ... ok
+import examples.convection.powerLaw1D.input ... ok
+import examples.convection.exponential1DSource.input ... ok
+import examples.convection.exponential2D.tri2Dinput ... ok
+import examples.convection.exponential1DSource.tri2Dinput ... ok
+import examples.convection.powerLaw1D.tri2Dinput ... ok
+import examples.convection.advection.inputVanLeerUpwind ... ok
+import examples.convection.peclet ... ok
+Doctest: examples.convection.exponential1D.input ... ok
+Doctest: examples.convection.exponential1D.tri2Dinput ... ok
+Doctest: examples.convection.exponential2D.input ... ok
+Doctest: examples.convection.exponential1DBack.input ... ok
+Doctest: examples.convection.powerLaw1D.input ... ok
+Doctest: examples.convection.exponential1DSource.input ... ok
+Doctest: examples.convection.exponential2D.tri2Dinput ... ok
+Doctest: examples.convection.exponential1DSource.tri2Dinput ... ok
+Doctest: examples.convection.powerLaw1D.tri2Dinput ... ok
+Doctest: examples.convection.advection.inputVanLeerUpwind ... ok
+Doctest: examples.convection.peclet ... ok
+import examples.diffusion.steadyState.test ... ok
+import examples.diffusion.explicit.test ... ok
+import examples.diffusion.variable.test ... ok
+import examples.diffusion.nthOrder.test ... ok
+import examples.diffusion.mesh1D ... ok
+import examples.diffusion.mesh20x20 ... ok
+import examples.diffusion.circle ... ok
+import examples.diffusion.electrostatics ... ok
+import examples.diffusion.steadyState.mesh1D.tri2Dinput ... ok
+import examples.diffusion.steadyState.mesh1D.inputPeriodic ... ok
+import examples.diffusion.steadyState.mesh20x20.tri2Dinput ... ok
+import examples.diffusion.steadyState.mesh50x50.input ... ok
+import examples.diffusion.steadyState.mesh50x50.tri2Dinput ... ok
+import examples.diffusion.steadyState.otherMeshes.grid3Dinput ... ok
+import examples.diffusion.steadyState.mesh20x20.modifiedMeshInput ... ok
+Doctest: examples.diffusion.steadyState.mesh1D.tri2Dinput ... ok
+Doctest: examples.diffusion.steadyState.mesh1D.inputPeriodic ... ok
+Doctest: examples.diffusion.steadyState.mesh20x20.tri2Dinput ... ok
+Doctest: examples.diffusion.steadyState.mesh50x50.input ... ok
+Doctest: examples.diffusion.steadyState.mesh50x50.tri2Dinput ... ok
+Doctest: examples.diffusion.steadyState.otherMeshes.grid3Dinput ... ok
+Doctest: examples.diffusion.steadyState.mesh20x20.modifiedMeshInput ... ok
+import examples.diffusion.explicit.mesh10.tri2Dinput ... ok
+import examples.diffusion.explicit.mesh10.input ... ok
+import examples.diffusion.explicit.mesh10.mixedelement ... ok
+Doctest: examples.diffusion.explicit.mesh10.tri2Dinput ... ok
+Doctest: examples.diffusion.explicit.mesh10.input ... ok
+Doctest: examples.diffusion.explicit.mesh10.mixedelement ... ok
+import examples.diffusion.variable.tri2Dinput ... ok
+Doctest: examples.diffusion.variable.tri2Dinput ... ok
+import examples.diffusion.nthOrder.input4thOrder1D ... ok
+import examples.diffusion.nthOrder.input4thOrder-line ... ok
+Doctest: examples.diffusion.nthOrder.input4thOrder1D ... ok
+Doctest: examples.diffusion.nthOrder.input4thOrder-line ... ok
+Doctest: examples.diffusion.mesh1D ... ok
+Doctest: examples.diffusion.mesh20x20 ... ok
+Doctest: examples.diffusion.circle ... sh: gmsh: command not found
+FAIL
+Doctest: examples.diffusion.electrostatics ... ok
+import examples.phase.simple.test ... ok
+import examples.phase.anisotropy.test ... ok
+import examples.phase.impingement.test ... ok
+import examples.phase.missOrientation.test ... ok
+import examples.phase.symmetry.test ... ok
+import examples.phase.binary ... ok
+import examples.phase.quaternary ... ok
+import examples.phase.simple.input ... ok
+Doctest: examples.phase.simple.input ... ok
+import examples.phase.anisotropy.input ... ok
+Doctest: examples.phase.anisotropy.input ... ok
+import examples.phase.impingement.mesh40x1.input ... ok
+import examples.phase.impingement.mesh20x20.input ... ok
+Doctest: examples.phase.impingement.mesh40x1.input ... ok
+Doctest: examples.phase.impingement.mesh20x20.input ... ok
+import examples.phase.missOrientation.mesh1D.input ... ok
+import examples.phase.missOrientation.circle.input ... ok
+import examples.phase.missOrientation.modCircle.input ... ok
+Doctest: examples.phase.missOrientation.mesh1D.input ... ok
+Doctest: examples.phase.missOrientation.circle.input ... ok
+Doctest: examples.phase.missOrientation.modCircle.input ... ok
+import examples.phase.symmetry.input ... ok
+Doctest: examples.phase.symmetry.input ... ok
+Doctest: examples.phase.binary ... ok
+Doctest: examples.phase.quaternary ... ok
+import examples.elphf.diffusion.input1D ... ok
+import examples.elphf.diffusion.input2D ... ok
+import examples.elphf.phase.input1D ... ok
+import examples.elphf.phaseDiffusion.input1D ... ok
+import examples.elphf.poisson.input1D ... ok
+Doctest: examples.elphf.diffusion.input1D ... ok
+Doctest: examples.elphf.diffusion.input2D ... ok
+Doctest: examples.elphf.phase.input1D ... ok
+Doctest: examples.elphf.phaseDiffusion.input1D ... ok
+Doctest: examples.elphf.poisson.input1D ... ok
+import examples.levelSet.distanceFunction.test ... ok
+import examples.levelSet.advection.test ... ok
+import examples.levelSet.surfactant.test ... ok
+import examples.levelSet.electroChem.test ... ok
+import examples.levelSet.distanceFunction.oneD.input ... ok
+import examples.levelSet.distanceFunction.circle.input ... ok
+import examples.levelSet.distanceFunction.square.input ... ok
+import examples.levelSet.distanceFunction.interior.input ... ok
+Doctest: examples.levelSet.distanceFunction.oneD.input ... ok
+Doctest: examples.levelSet.distanceFunction.circle.input ... ok
+Doctest: examples.levelSet.distanceFunction.square.input ... ok
+Doctest: examples.levelSet.distanceFunction.interior.input ... ok
+import examples.levelSet.advection.mesh1D.input ... ok
+import examples.levelSet.advection.circle.input ... ok
+import examples.levelSet.advection.trench.input ... ok
+Doctest: examples.levelSet.advection.mesh1D.input ... ok
+Doctest: examples.levelSet.advection.circle.input ... ok
+Doctest: examples.levelSet.advection.trench.input ... ok
+import examples.levelSet.surfactant.inputCircle ... ok
+import examples.levelSet.surfactant.inputSquare ... ok
+import examples.levelSet.surfactant.expandingCircle ... ok
+import examples.levelSet.surfactant.adsorption ... ok
+Doctest: examples.levelSet.surfactant.inputCircle ... ok
+Doctest: examples.levelSet.surfactant.inputSquare ... ok
+Doctest: examples.levelSet.surfactant.expandingCircle ... ok
+Doctest: examples.levelSet.surfactant.adsorption ... ok
+import examples.levelSet.electroChem.inputWriteScriptHowTo ... ok
+import examples.levelSet.electroChem.inputSimpleTrenchSystem ... ok
+import examples.levelSet.electroChem.inputGold ... ok
+import examples.levelSet.electroChem.inputLeveler ... ok
+Doctest: examples.levelSet.electroChem.inputWriteScriptHowTo ... ok
+Doctest: examples.levelSet.electroChem.inputSimpleTrenchSystem ... ok
+Doctest: examples.levelSet.electroChem.inputGold ... sh: gmsh: command not found
+FAIL
+Doctest: examples.levelSet.electroChem.inputLeveler ... sh: gmsh: command not found
+FAIL
+import examples.chemotaxis.input ... ok
+import examples.chemotaxis.input2D ... ok
+Doctest: examples.chemotaxis.input ... ok
+Doctest: examples.chemotaxis.input2D ... ok
+import examples.cahnHilliard.inputTanh1D ... ok
+Doctest: examples.cahnHilliard.inputTanh1D ... ok
+import examples.flow.stokesCavity ... ok
+Doctest: examples.flow.stokesCavity ... ok
+
+======================================================================
+FAIL: Doctest: fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "doctest.py", line 2157, in runTest
+    raise self.failureException(self.format_failure(new.getvalue()))
+AssertionError: Failed doctest test for fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+  File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 23, in GapFillMesh
+
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 30, in fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+Failed example:
+    mesh = GapFillMesh(transitionRegionHeight = 2.,
+                       cellSize = 0.1,
+                       desiredFineRegionHeight = 1.,
+                       desiredDomainHeight = domainHeight,
+                       desiredDomainWidth = 1.)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh[1]>", line 5, in ?
+        desiredDomainWidth = 1.)
+      File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 101, in __init__
+        transitionMesh = self.buildTransitionMesh(nx, transitionRegionHeight, cellSize) + (0, self.actualFineRegionHeight)
+      File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 173, in buildTransitionMesh
+        mesh = GmshImporter2D(meshName)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 394, in __init__
+        mesh2D.Mesh2D.__init__(self, **_DataGetter().getData(filename, dimensions = 2, coordDimensions = coordDimensions))
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 263, in getData
+        vertexCoords = self._calcVertexCoords(coordDimensions)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 286, in _calcVertexCoords
+        numVertices = int(self.inFile.readline())
+    ValueError: invalid literal for int(): 
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 37, in fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+Failed example:
+    (f, filename) = dump.write(mesh)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh[3]>", line 1, in ?
+        (f, filename) = dump.write(mesh)
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 38, in fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+Failed example:
+    mesh = dump.read(filename, f)        
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh[4]>", line 1, in ?
+        mesh = dump.read(filename, f)
+    NameError: name 'filename' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 39, in fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+Failed example:
+    mesh.getNumberOfCells() - len(mesh.getCellIDsAboveFineRegion())
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh[5]>", line 1, in ?
+        mesh.getNumberOfCells() - len(mesh.getCellIDsAboveFineRegion())
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 43, in fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+Failed example:
+    var = CellVariable(mesh = mesh)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh[7]>", line 1, in ?
+        var = CellVariable(mesh = mesh)
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 49, in fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+Failed example:
+    eq.solve(var, boundaryConditions = (FixedValue(mesh.getBottomFaces(), 0.),
+                                        FixedValue(mesh.getTopFaces(), domainHeight)))
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh[11]>", line 1, in ?
+        eq.solve(var, boundaryConditions = (FixedValue(mesh.getBottomFaces(), 0.),
+    NameError: name 'var' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 54, in fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+Failed example:
+    centers = mesh.getCellCenters()[:,1]
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh[12]>", line 1, in ?
+        centers = mesh.getCellCenters()[:,1]
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 55, in fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+Failed example:
+    localErrors = (centers - var)**2 / centers**2
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh[13]>", line 1, in ?
+        localErrors = (centers - var)**2 / centers**2
+    NameError: name 'centers' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 56, in fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+Failed example:
+    globalError = numerix.sqrt(numerix.sum(localErrors) / mesh.getNumberOfCells())
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh[14]>", line 1, in ?
+        globalError = numerix.sqrt(numerix.sum(localErrors) / mesh.getNumberOfCells())
+    NameError: name 'localErrors' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 57, in fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+Failed example:
+    argmax = numerix.argmax(localErrors)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh[15]>", line 1, in ?
+        argmax = numerix.argmax(localErrors)
+    NameError: name 'localErrors' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 58, in fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+Failed example:
+    print numerix.sqrt(localErrors[argmax]) < 0.05
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh[16]>", line 1, in ?
+        print numerix.sqrt(localErrors[argmax]) < 0.05
+    NameError: name 'localErrors' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 60, in fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh
+Failed example:
+    print globalError < 0.02
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.GapFillMesh[17]>", line 1, in ?
+        print globalError < 0.02
+    NameError: name 'globalError' is not defined
+
+
+======================================================================
+FAIL: Doctest: fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "doctest.py", line 2157, in runTest
+    raise self.failureException(self.format_failure(new.getvalue()))
+AssertionError: Failed doctest test for fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+  File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 193, in TrenchMesh
+
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 210, in fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+Failed example:
+    mesh = TrenchMesh(trenchSpacing = 1e-6,
+                      cellSize = cellSize,
+                      trenchDepth = trenchDepth,
+                      boundaryLayerDepth = boundaryLayerDepth,
+                      aspectRatio = 1.)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh[4]>", line 5, in ?
+        aspectRatio = 1.)
+      File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 304, in __init__
+        transitionRegionHeight = transitionHeight)
+      File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 101, in __init__
+        transitionMesh = self.buildTransitionMesh(nx, transitionRegionHeight, cellSize) + (0, self.actualFineRegionHeight)
+      File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 173, in buildTransitionMesh
+        mesh = GmshImporter2D(meshName)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 394, in __init__
+        mesh2D.Mesh2D.__init__(self, **_DataGetter().getData(filename, dimensions = 2, coordDimensions = coordDimensions))
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 263, in getData
+        vertexCoords = self._calcVertexCoords(coordDimensions)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 286, in _calcVertexCoords
+        numVertices = int(self.inFile.readline())
+    ValueError: invalid literal for int(): 
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 217, in fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+Failed example:
+    (f, filename) = dump.write(mesh)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh[6]>", line 1, in ?
+        (f, filename) = dump.write(mesh)
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 218, in fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+Failed example:
+    mesh = dump.read(filename, f)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh[7]>", line 1, in ?
+        mesh = dump.read(filename, f)
+    NameError: name 'filename' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 219, in fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+Failed example:
+    mesh.getNumberOfCells() - len(numerix.nonzero(mesh.getElectrolyteMask()))        
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh[8]>", line 1, in ?
+        mesh.getNumberOfCells() - len(numerix.nonzero(mesh.getElectrolyteMask()))
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 223, in fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+Failed example:
+    var = CellVariable(mesh = mesh, value = 0.)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh[10]>", line 1, in ?
+        var = CellVariable(mesh = mesh, value = 0.)
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 229, in fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+Failed example:
+    eq.solve(var, boundaryConditions = (FixedValue(mesh.getBottomFaces(), 0.),
+                                        FixedValue(mesh.getTopFaces(), domainHeight)))
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh[14]>", line 1, in ?
+        eq.solve(var, boundaryConditions = (FixedValue(mesh.getBottomFaces(), 0.),
+    NameError: name 'var' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 234, in fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+Failed example:
+    centers = mesh.getCellCenters()[:,1]
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh[15]>", line 1, in ?
+        centers = mesh.getCellCenters()[:,1]
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 235, in fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+Failed example:
+    localErrors = (centers - var)**2 / centers**2
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh[16]>", line 1, in ?
+        localErrors = (centers - var)**2 / centers**2
+    NameError: name 'centers' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 236, in fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+Failed example:
+    globalError = numerix.sqrt(numerix.sum(localErrors) / mesh.getNumberOfCells())
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh[17]>", line 1, in ?
+        globalError = numerix.sqrt(numerix.sum(localErrors) / mesh.getNumberOfCells())
+    NameError: name 'localErrors' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 237, in fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+Failed example:
+    argmax = numerix.argmax(localErrors)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh[18]>", line 1, in ?
+        argmax = numerix.argmax(localErrors)
+    NameError: name 'localErrors' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 238, in fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+Failed example:
+    print numerix.sqrt(localErrors[argmax]) < 0.051
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh[19]>", line 1, in ?
+        print numerix.sqrt(localErrors[argmax]) < 0.051
+    NameError: name 'localErrors' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 240, in fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh
+Failed example:
+    print globalError < 0.02
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.models.levelSet.electroChem.gapFillMesh.TrenchMesh[20]>", line 1, in ?
+        print globalError < 0.02
+    NameError: name 'globalError' is not defined
+
+
+======================================================================
+FAIL: Doctest: fipy.meshes.numMesh.gmshImport
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "doctest.py", line 2157, in runTest
+    raise self.failureException(self.format_failure(new.getvalue()))
+AssertionError: Failed doctest test for fipy.meshes.numMesh.gmshImport
+  File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 7, in gmshImport
+
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 180, in fipy.meshes.numMesh.gmshImport
+Failed example:
+    mesh = buildMesh(lines)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.meshes.numMesh.gmshImport[14]>", line 1, in ?
+        mesh = buildMesh(lines)
+      File "<doctest fipy.meshes.numMesh.gmshImport[13]>", line 18, in buildMesh
+        mesh = GmshImporter2D(meshName)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 394, in __init__
+        mesh2D.Mesh2D.__init__(self, **_DataGetter().getData(filename, dimensions = 2, coordDimensions = coordDimensions))
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 263, in getData
+        vertexCoords = self._calcVertexCoords(coordDimensions)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 286, in _calcVertexCoords
+        numVertices = int(self.inFile.readline())
+    ValueError: invalid literal for int(): 
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 192, in fipy.meshes.numMesh.gmshImport
+Failed example:
+    mesh = buildMesh(lines)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.meshes.numMesh.gmshImport[17]>", line 1, in ?
+        mesh = buildMesh(lines)
+      File "<doctest fipy.meshes.numMesh.gmshImport[13]>", line 18, in buildMesh
+        mesh = GmshImporter2D(meshName)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 394, in __init__
+        mesh2D.Mesh2D.__init__(self, **_DataGetter().getData(filename, dimensions = 2, coordDimensions = coordDimensions))
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 263, in getData
+        vertexCoords = self._calcVertexCoords(coordDimensions)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 286, in _calcVertexCoords
+        numVertices = int(self.inFile.readline())
+    ValueError: invalid literal for int(): 
+
+
+======================================================================
+FAIL: Doctest: fipy.variables.variable.Variable.__array__
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "doctest.py", line 2157, in runTest
+    raise self.failureException(self.format_failure(new.getvalue()))
+AssertionError: Failed doctest test for fipy.variables.variable.Variable.__array__
+  File "/home/username/tmp/fipy-current/fipy/variables/variable.py", line 179, in __array__
+
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/variables/variable.py", line 198, in fipy.variables.variable.Variable.__array__
+Failed example:
+    numerix.array([Variable(0), Variable(0)])
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.variables.variable.Variable.__array__[4]>", line 1, in ?
+        numerix.array([Variable(0), Variable(0)])
+    ValueError: setting an array element with a sequence.
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/variables/variable.py", line 203, in fipy.variables.variable.Variable.__array__
+Failed example:
+    numerix.array([Variable(0) + Variable(0), Variable(0)])
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.variables.variable.Variable.__array__[6]>", line 1, in ?
+        numerix.array([Variable(0) + Variable(0), Variable(0)])
+    ValueError: setting an array element with a sequence.
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/fipy/variables/variable.py", line 205, in fipy.variables.variable.Variable.__array__
+Failed example:
+    numerix.array([Variable(0), Variable(0) + Variable(0)])
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest fipy.variables.variable.Variable.__array__[7]>", line 1, in ?
+        numerix.array([Variable(0), Variable(0) + Variable(0)])
+    ValueError: setting an array element with a sequence.
+
+
+======================================================================
+FAIL: Doctest: examples.diffusion.circle
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "doctest.py", line 2157, in runTest
+    raise self.failureException(self.format_failure(new.getvalue()))
+AssertionError: Failed doctest test for examples.diffusion.circle
+  File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 6, in circle
+
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 62, in examples.diffusion.circle
+Failed example:
+    os.system('gmsh ' + geomName + ' -2 -v 0 -format msh -o ' + meshName)
+Expected:
+    0
+Got:
+    32512
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 78, in examples.diffusion.circle
+Failed example:
+    mesh = GmshImporter2D(meshName)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.diffusion.circle[16]>", line 1, in ?
+        mesh = GmshImporter2D(meshName)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 394, in __init__
+        mesh2D.Mesh2D.__init__(self, **_DataGetter().getData(filename, dimensions = 2, coordDimensions = coordDimensions))
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 263, in getData
+        vertexCoords = self._calcVertexCoords(coordDimensions)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 286, in _calcVertexCoords
+        numVertices = int(self.inFile.readline())
+    ValueError: invalid literal for int(): 
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 90, in examples.diffusion.circle
+Failed example:
+    phi = CellVariable(name = "solution variable",
+                       mesh = mesh,
+                       value = 0)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.diffusion.circle[19]>", line 2, in ?
+        mesh = mesh,
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 146, in examples.diffusion.circle
+Failed example:
+    exteriorXcoords = numerix.take(mesh.getFaceCenters()[...,0],
+                                   mesh.getExteriorFaces())
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.diffusion.circle[27]>", line 1, in ?
+        exteriorXcoords = numerix.take(mesh.getFaceCenters()[...,0],
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 156, in examples.diffusion.circle
+Failed example:
+    BCs = (FixedValue(faces=mesh.getExteriorFaces(), value=exteriorXcoords),)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.diffusion.circle[29]>", line 1, in ?
+        BCs = (FixedValue(faces=mesh.getExteriorFaces(), value=exteriorXcoords),)
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 162, in examples.diffusion.circle
+Failed example:
+    for step in range(steps):
+        eq.solve(var=phi,
+                 boundaryConditions=BCs,
+                 dt=timeStepDuration)
+        if viewer is not None:
+            viewer.plot()
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.diffusion.circle[32]>", line 2, in ?
+        eq.solve(var=phi,
+    NameError: name 'phi' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 201, in examples.diffusion.circle
+Failed example:
+    x, y = mesh.getCellCenters()[...,0], mesh.getCellCenters()[...,1]
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.diffusion.circle[33]>", line 1, in ?
+        x, y = mesh.getCellCenters()[...,0], mesh.getCellCenters()[...,1]
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 204, in examples.diffusion.circle
+Failed example:
+    phiAnalytical = CellVariable(name="analytical value",
+                                 mesh=mesh)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.diffusion.circle[35]>", line 2, in ?
+        mesh=mesh)
+    NameError: name 'mesh' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 218, in examples.diffusion.circle
+Failed example:
+    x0 = radius * cos(arcsin(y))
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.diffusion.circle[37]>", line 1, in ?
+        x0 = radius * cos(arcsin(y))
+    NameError: name 'y' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 219, in examples.diffusion.circle
+Failed example:
+    try:
+        from scipy.special import erf
+        phiAnalytical.setValue(x0 * (erf((x0+x) / (2 * sqrt(D * t))) 
+                                     - erf((x0-x) / (2 * sqrt(D * t)))))
+    except ImportError:
+        print "The SciPy library is not available to test the solution to \
+    the transient diffusion equation"
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.diffusion.circle[38]>", line 3, in ?
+        phiAnalytical.setValue(x0 * (erf((x0+x) / (2 * sqrt(D * t)))
+    NameError: name 'phiAnalytical' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 227, in examples.diffusion.circle
+Failed example:
+    print phi.allclose(phiAnalytical, atol = 7e-2)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.diffusion.circle[39]>", line 1, in ?
+        print phi.allclose(phiAnalytical, atol = 7e-2)
+    NameError: name 'phi' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 238, in examples.diffusion.circle
+Failed example:
+    ImplicitDiffusionTerm(coeff=D).solve(var=phi,
+                                         boundaryConditions=BCs)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.diffusion.circle[41]>", line 1, in ?
+        ImplicitDiffusionTerm(coeff=D).solve(var=phi,
+    NameError: name 'phi' is not defined
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/diffusion/circle.py", line 243, in examples.diffusion.circle
+Failed example:
+    print phi.allclose(mesh.getCellCenters()[...,0], atol = 0.02)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.diffusion.circle[42]>", line 1, in ?
+        print phi.allclose(mesh.getCellCenters()[...,0], atol = 0.02)
+    NameError: name 'phi' is not defined
+
+
+======================================================================
+FAIL: Doctest: examples.levelSet.electroChem.inputGold
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "doctest.py", line 2157, in runTest
+    raise self.failureException(self.format_failure(new.getvalue()))
+AssertionError: Failed doctest test for examples.levelSet.electroChem.inputGold
+  File "/home/username/tmp/fipy-current/examples/levelSet/electroChem/inputGold.py", line 6, in inputGold
+
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/levelSet/electroChem/inputGold.py", line 39, in examples.levelSet.electroChem.inputGold
+Failed example:
+    runGold(numberOfSteps=10, displayViewers=False)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.levelSet.electroChem.inputGold[1]>", line 1, in ?
+        runGold(numberOfSteps=10, displayViewers=False)
+      File "/home/username/tmp/fipy-current/examples/levelSet/electroChem/inputGold.py", line 155, in runGold
+        overBumpWidth = 0.)
+      File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 304, in __init__
+        transitionRegionHeight = transitionHeight)
+      File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 101, in __init__
+        transitionMesh = self.buildTransitionMesh(nx, transitionRegionHeight, cellSize) + (0, self.actualFineRegionHeight)
+      File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 173, in buildTransitionMesh
+        mesh = GmshImporter2D(meshName)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 394, in __init__
+        mesh2D.Mesh2D.__init__(self, **_DataGetter().getData(filename, dimensions = 2, coordDimensions = coordDimensions))
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 263, in getData
+        vertexCoords = self._calcVertexCoords(coordDimensions)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 286, in _calcVertexCoords
+        numVertices = int(self.inFile.readline())
+    ValueError: invalid literal for int(): 
+
+
+======================================================================
+FAIL: Doctest: examples.levelSet.electroChem.inputLeveler
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "doctest.py", line 2157, in runTest
+    raise self.failureException(self.format_failure(new.getvalue()))
+AssertionError: Failed doctest test for examples.levelSet.electroChem.inputLeveler
+  File "/home/username/tmp/fipy-current/examples/levelSet/electroChem/inputLeveler.py", line 6, in inputLeveler
+
+----------------------------------------------------------------------
+File "/home/username/tmp/fipy-current/examples/levelSet/electroChem/inputLeveler.py", line 40, in examples.levelSet.electroChem.inputLeveler
+Failed example:
+    runLeveler(numberOfSteps=10, displayViewers=False, cellSize=0.25e-7)
+Exception raised:
+    Traceback (most recent call last):
+      File "doctest.py", line 1248, in __run
+        compileflags, 1) in test.globs
+      File "<doctest examples.levelSet.electroChem.inputLeveler[1]>", line 1, in ?
+        runLeveler(numberOfSteps=10, displayViewers=False, cellSize=0.25e-7)
+      File "/home/username/tmp/fipy-current/examples/levelSet/electroChem/inputLeveler.py", line 260, in runLeveler
+        overBumpWidth = 0.)
+      File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 304, in __init__
+        transitionRegionHeight = transitionHeight)
+      File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 101, in __init__
+        transitionMesh = self.buildTransitionMesh(nx, transitionRegionHeight, cellSize) + (0, self.actualFineRegionHeight)
+      File "/home/username/tmp/fipy-current/fipy/models/levelSet/electroChem/gapFillMesh.py", line 173, in buildTransitionMesh
+        mesh = GmshImporter2D(meshName)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 394, in __init__
+        mesh2D.Mesh2D.__init__(self, **_DataGetter().getData(filename, dimensions = 2, coordDimensions = coordDimensions))
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 263, in getData
+        vertexCoords = self._calcVertexCoords(coordDimensions)
+      File "/home/username/tmp/fipy-current/fipy/meshes/numMesh/gmshImport.py", line 286, in _calcVertexCoords
+        numVertices = int(self.inFile.readline())
+    ValueError: invalid literal for int(): 
+
+
+----------------------------------------------------------------------
+Ran 417 tests in 404.892s
+
+FAILED (failures=7)
